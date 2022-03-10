@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="zn-Ch">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_ip7u14w8cls.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.css"/>
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+    <script src="/PCompus/static/js/base/style.js"></script>
+    <script src="/PCompus/static/js/base/common.js"></script>
+    <script src="/PCompus/static/Js/vendor/imagesLoaded.js"></script>
+    <script src="/PCompus/static/Js/base/inspector.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+<div class="head">
+    <nav class="navbar navbar-expand-lg">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <!-- 首页 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">综合</a>
+                    <a class="dropdown-item" href="#">学院</a>
+                    <a class="dropdown-item" href="#">个人</a>
+                    <a class="dropdown-item" href="#">社会</a>
+                </div>
+            </li>
+            <!-- 应用 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+            <!-- 页面 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">页面</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+            <!-- 笔记 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                    笔记
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+        </ul>
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
+
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <!-- 用户头像 -->
+        <div class="nav-item login-user" id="login-user">
+            <img
+                    src="/PCompus/static/img/profile/profile-5.jpg"
+                    alt="用户头像"
+                    id="login-user-image"
+                    class="login-user-image"
+            />
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="container">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">数据</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="main container">
+    <div class="row">
+        <div class="col-md-12 data-item-title">
+            <ul class="nav nav-tabs" role="tablist" id="feature-tab">
+                <li id="week-li">
+                    <a href="#week-tab" role="tab" data-toggle="tab">本周</a>
+                </li>
+                <li id="day-li">
+                    <a href="#tab-register" role="tab" data-toggle="tab">本日</a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-echarts">刷新</button>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane" id="week-tab">
+            <div class="row feature">
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="form-group">
+                        <select
+                                class="form-control echarts-select"
+                                id="week-echarts-select"
+                        >
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="data-item jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <div
+                                class="data-content"
+                                id="week-practice-data"
+                                style="width: 1000px; height: 500px"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane" id="day-tab">
+            <div class="row feature">
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="form-group">
+                        <select class="form-control echarts-select" id="day-echarts-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="data-item jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <div
+                                class="data-content"
+                                id="day-practice-data"
+                                style="width: 1000px; height: 500px"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main container main-container">
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="dashboards-practice-ul" role="tablist">
+                <li role="presentation" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校内
+                    </a>
+                </li>
+                <li role="presentation" id="out-school-li">
+                    <a
+                            href="#panel-2"
+                            aria-controls="panel-2"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校外
+                    </a>
+                </li>
+                <li role="presentation" id="most-li">
+                    <a
+                            href="#panel-3"
+                            aria-controls="panel-3"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        热门
+                    </a>
+                </li>
+                <li role="presentation" id="recent-li">
+                    <a
+                            href="#panel-4"
+                            aria-controls="panel-4"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        最新
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-practice">刷新</button>
+        </div>
+    </div>
+    <div class="data-item jumbotron jumbotron-fluid">
+        <div class="main-content">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="panel-1">
+                    <div class="row masonry-container">
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/abstract"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/abstract"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/abstract"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/abstract"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/abstract"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.masonry-container  -->
+                </div>
+                <!--/.tab-panel -->
+
+                <div role="tabpanel" class="tab-pane" id="panel-2">
+                    <div class="row masonry-container">
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/city" alt=""/>
+                                <div class="caption">
+                                    <h3>111</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/city" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/city" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/city" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/city" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.masonry-container  -->
+                </div>
+                <!--/.tab-panel -->
+
+                <div role="tabpanel" class="tab-pane" id="panel-3">
+                    <div class="row masonry-container">
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/nature"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/nature"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/nature"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/nature"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img
+                                        src="http://lorempixel.com/200/200/nature"
+                                        alt=""
+                                />
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.masonry-container  -->
+                </div>
+                <!--/.tab-panel -->
+
+                <div role="tabpanel" class="tab-pane" id="panel-4">
+                    <div class="row masonry-container">
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/cats" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/cats" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/cats" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/cats" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.item  -->
+
+                        <div class="col-md-4 col-sm-6 item">
+                            <div class="thumbnail">
+                                <img src="http://lorempixel.com/200/200/cats" alt=""/>
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Corrupti, illum voluptates
+                                        consectetur consequatur ducimus. Necessitatibus,
+                                        nobis consequatur hic eaque laborum laudantium.
+                                        Adipisci, explicabo, asperiores molestias
+                                        deleniti unde dolore enim quas.
+                                    </p>
+                                    <p>
+                                        <a
+                                                href="#"
+                                                class="btn btn-primary"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                        <a
+                                                href="#"
+                                                class="btn btn-default"
+                                                role="button"
+                                        >
+                                            Button
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.masonry-container  -->
+                </div>
+                <!--/.tab-panel -->
+            </div>
+            <!--/.tab-content -->
+        </div>
+        <!--/.tab-panel  -->
+    </div>
+</div>
+
+</div>
+
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+</div>
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+<script src="/PCompus/static/js/pages/Dashboards.Default.js" type="module"></script>
+</body>
+</html>

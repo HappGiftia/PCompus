@@ -1,0 +1,70 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PCompus_controller:war exploded">
+    <output-path>$PROJECT_DIR$/PCompus_controller/target/PCompus_controller-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>PCompus_controller</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PCompus_controller" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="archive" name="PCompus_service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="PCompus_service" />
+          </element>
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.27" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.5" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.20" />
+          <element id="archive" name="PCompus_mapper-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="PCompus_mapper" />
+          </element>
+          <element id="archive" name="PCompus_pojo-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="PCompus_pojo" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.12" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.12" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.14.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.14.0" />
+          <element id="library" level="project" name="Maven: org.apache.cocoon:cocoon-spring-configurator:2.2.1" />
+          <element id="library" level="project" name="Maven: org.apache.cocoon:cocoon-configuration-api:1.0.4" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:1.3.1" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.7" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.12" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-avro:2.13.0" />
+          <element id="library" level="project" name="Maven: org.apache.avro:avro:1.8.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: com.thoughtworks.paranamer:paranamer:2.7" />
+          <element id="library" level="project" name="Maven: org.xerial.snappy:snappy-java:1.1.1.3" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-compress:1.8.1" />
+          <element id="library" level="project" name="Maven: org.tukaani:xz:1.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/PCompus_controller/target/PCompus_controller-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="PCompus_controller/web/Web" />
+    </root>
+  </artifact>
+</component>

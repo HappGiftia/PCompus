@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>PCompus_service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--定义该工程的父工程-->
+    <parent>
+        <groupId>com.uof.pcompus</groupId>
+        <artifactId>PCompus_app</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../PCompus_app/pom.xml</relativePath>
+    </parent>
+
+
+    <name>PCompus_service</name>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!--service层数据库相关-->
+
+        <!--mysql连接驱动引入-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--c3p0数据源引入-->
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+        </dependency>
+        <!--c3p0环境支持引入-->
+        <!-- https://mvnrepository.com/artifact/com.mchange/mchange-commons-java -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>mchange-commons-java</artifactId>
+        </dependency>
+        <!--mybatis引入-->
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <!--引入pojo层-->
+        <dependency>
+            <groupId>com.uof.pcompus</groupId>
+            <artifactId>PCompus_pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--引入mapper层-->
+        <dependency>
+            <groupId>com.uof.mapper</groupId>
+            <artifactId>PCompus_mapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <!--<scope>compile</scope>-->
+        </dependency>
+
+    </dependencies>
+
+
+</project>

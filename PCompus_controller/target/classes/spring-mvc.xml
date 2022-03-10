@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--controller组件扫描-->
+    <context:component-scan base-package="com.uof.pcompus.controller"/>
+    <!--配置注解驱动-->
+    <mvc:annotation-driven/>
+    <!-- 扫描 service 包下所有使⽤注解的类型 -->
+    <context:component-scan base-package="com.uof.pcompus.service"/>
+
+    <!--内部视图资源解析器-->
+    <bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/pages/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+    <!--设置自动编码utf-8-->
+    <bean class="com.uof.pcompus.common.DefineCharset"/>
+
+    <mvc:default-servlet-handler/>
+
+</beans>

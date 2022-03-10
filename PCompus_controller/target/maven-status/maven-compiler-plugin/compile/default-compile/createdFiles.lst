@@ -1,0 +1,9 @@
+com\uof\pcompus\controller\AdministratorController.class
+com\uof\pcompus\controller\RegisterController.class
+com\uof\pcompus\controller\SearchController.class
+com\uof\pcompus\common\DefineCharset.class
+com\uof\pcompus\controller\Test.class
+com\uof\pcompus\controller\PagesController.class
+com\uof\pcompus\filters\testfilter.class
+com\uof\pcompus\controller\EchartsController.class
+com\uof\pcompus\listeners\testlistener.class

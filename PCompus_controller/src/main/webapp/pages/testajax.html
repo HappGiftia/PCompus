@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>注册信息</title>
+    <script type="text/javascript" src="/PCompus/static/js/vendor/jquery-3.5.1.min.js"></script>
+    <script>
+        jQuery.support.cors = true;
+        $(function () {
+            $('#username').blur(function () {
+
+                var pusername = $(this).val();
+                $.ajax({
+                        url: 'http://localhost:8080/PCompus/query',
+                        type: "get",
+                        dataType: "text",
+                        data: {
+                            username: pusername
+                        },
+                        xhrFields: {withCredentials: true},
+                        success: function (msg) {
+                            alert("返回信息:" + msg);
+                        },
+                        error: function () {
+                            alert("返回错误");
+                        }
+
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+
+<form id="login-form" method="get" action="http://localhost:8080/PCompus/register">
+    <input id="username" type="text" name="username" placeholder="用户名"/><br>
+    <input id="password" type="text" name="password" placeholder="密码"/><br>
+    <button type="submit">登录</button>
+</form>
+</body>
+</html>

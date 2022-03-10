@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PCompus_mapper" />
+        <module name="PCompus_service" />
+        <module name="PCompus_controller" />
+        <module name="PCompus_pojo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="PCompus_app" target="1.7" />
+      <module name="PCompus_controller" target="1.7" />
+      <module name="PCompus_mapper" target="1.7" />
+      <module name="PCompus_pojo" target="1.7" />
+      <module name="PCompus_service" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

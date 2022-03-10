@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PCompus_app/PCompus_app.iml" filepath="$PROJECT_DIR$/PCompus_app/PCompus_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PCompus_controller/PCompus_controller.iml" filepath="$PROJECT_DIR$/PCompus_controller/PCompus_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PCompus_mapper/PCompus_mapper.iml" filepath="$PROJECT_DIR$/PCompus_mapper/PCompus_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PCompus_pojo/PCompus_pojo.iml" filepath="$PROJECT_DIR$/PCompus_pojo/PCompus_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PCompus_service/PCompus_service.iml" filepath="$PROJECT_DIR$/PCompus_service/PCompus_service.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,42 @@
+.selected{
+    visibility: visible;
+    display: block;
+}
+.hiddenDom{
+    visibility: hidden;
+    display: none;
+}
+#day-li{
+    margin-left: 10px;
+}
+#refresh-echarts{
+    float: right;
+}
+.nav-tabs{
+    float: left;
+}
+.footer
+{
+    position:static;
+    right:0px;
+    bottom:0px;
+    background:#faead4;
+    color:#000;
+    display:block;
+    width:100%;
+    text-align:center;
+    z-index: 10;
+}
+.footer span
+{
+    position:relative;
+    display:block;
+    left:0;
+
+}
+.btn-default{
+    float:right;
+}
+#refresh-practice{
+    float: right;
+}
