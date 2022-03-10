@@ -266,4 +266,7 @@ a:hover {
     float: right;
 }
 
+.caption > p {
+    color: #555666;
+}
 /*新闻板块结束*/

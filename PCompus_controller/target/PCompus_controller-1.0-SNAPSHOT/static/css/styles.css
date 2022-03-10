@@ -207,9 +207,9 @@ body {
     height: 235px;
     float: right;
     top: -20px;
+    right: 12px;
     border: 2px solid black;
     visibility: collapse;
-    margin-right: 11px;
     position: relative;
     background-color: #f3f5f6;
     border-radius: 10px;
@@ -290,6 +290,7 @@ body {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
+/*音乐播放器*/
 * {
     margin: 0;
     padding: 0;
@@ -301,6 +302,7 @@ body {
     background-color: #faead4;
     position: fixed;
     bottom: 0;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     z-index: 999;
 }
 
@@ -376,11 +378,15 @@ body {
     left: -3px;
     top: -2px;
 }
-
+/*音乐播放器结束*/
 .nav-tabs li:not(:first-child) {
 
     margin-left: 10px;
 }
 
 .main-content {
+}
+
+.data-item-title > button {
+    float: right;
 }
