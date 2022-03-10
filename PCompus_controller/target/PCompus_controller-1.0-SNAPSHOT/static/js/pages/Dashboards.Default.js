@@ -621,8 +621,8 @@ dayLi.click(function () {
     clearDatas(weekDataEchart);
 })
 
-$(function(){
-    $("#dashboards-practice-ul li[role='presentation']").click(function(){
+$(function () {
+    $("#dashboards-practice-ul li[role='presentation']").click(function () {
         $(this).addClass('active');
         $(this).siblings().removeClass('active')
     });

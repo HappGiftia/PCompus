@@ -14,21 +14,21 @@
 $(function () {
     $('#login-user').hover(
         function () {
-            $(this).css({ 'z-index': '1000', border: '2px solid #696969' });
+            $(this).css({'z-index': '1000', border: '2px solid #696969'});
             $('.login-user-dropdown').css('visibility', 'visible');
         },
         function () {
-            $(this).css({ 'z-index': '0', border: '2px solid black' });
+            $(this).css({'z-index': '0', border: '2px solid black'});
             $('.login-user-dropdown').css('visibility', 'collapse');
         }
     );
     $('.login-user-dropdown').hover(
         function () {
-            $('#login-user').css({ 'z-index': '1000', border: '2px solid #696969' });
+            $('#login-user').css({'z-index': '1000', border: '2px solid #696969'});
             $(this).css('visibility', 'visible');
         },
         function () {
-            $('#login-user').css({ 'z-index': '0', border: '2px solid black' });
+            $('#login-user').css({'z-index': '0', border: '2px solid black'});
             $(this).css('visibility', 'collapse');
         }
     );

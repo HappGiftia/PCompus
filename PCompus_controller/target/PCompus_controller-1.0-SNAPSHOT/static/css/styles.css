@@ -379,8 +379,8 @@ body {
 
 .nav-tabs li:not(:first-child) {
 
-margin-left: 10px;
+    margin-left: 10px;
 }
-.main-content{
-    padding: 40px;
+
+.main-content {
 }

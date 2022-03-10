@@ -1202,7 +1202,7 @@ function reConstructData(type) {
     } else if (!isEmpty(echartsCreateType)) {
         echarts_series_type = echartsCreateType;
     }
-    if(!isEmpty(echartsSeriesStackList)){
+    if (!isEmpty(echartsSeriesStackList)) {
         echarts_series_stack = echartsSeriesStackList.join(split_y_symbol);
     }
     switch (echarts_series_type) {

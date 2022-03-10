@@ -8,6 +8,7 @@
  * @阁下何不同风起，扶摇直上九万里。wink~~~~
  */
 jQuery.support.cors = true;
+
 // 导航栏搜索框
 function search_nav() {
     var nav_search = $('#search-input').val();
