@@ -622,7 +622,7 @@ dayLi.click(function () {
 })
 
 $(function () {
-    $("#dashboards-practice-ul li[role='presentation']").click(function () {
+    $(".nav-tabs li[role='tab']").click(function () {
         $(this).addClass('active');
         $(this).siblings().removeClass('active')
     });
