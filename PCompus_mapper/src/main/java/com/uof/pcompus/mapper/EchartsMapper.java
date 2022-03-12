@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Mapper
 public interface EchartsMapper {
-    @Select("SELECT * FROM auto_echarts WHERE column_id =#{column_id}")
+    @Select("SELECT * FROM echarts WHERE column_id =#{column_id}")
     @Results(id = "echarts", value = {
             @Result(column = "column_id", property = "columnId", jdbcType = JdbcType.VARCHAR, id = true),
             @Result(column = "title", property = "title", jdbcType = JdbcType.VARCHAR),
@@ -31,23 +31,23 @@ public interface EchartsMapper {
     })
     public Echarts queryAutoColumns(int column_id);
 
-    @Select("SELECT * FROM auto_echarts")
+    @Select("SELECT * FROM echarts")
     @ResultMap("echarts")
     public List<Echarts> queryAllEcharts();
 
-    @Select("SELECT * FROM auto_echarts WHERE column_id =#{column_id}")
+    @Select("SELECT * FROM echarts WHERE column_id =#{column_id}")
     public String queryUserColumns();
 
     @Delete("<script>" +
-            "DELETE FROM auto_echarts WHERE column_id in " +
+            "DELETE FROM echarts WHERE column_id in " +
             "<foreach collection='array' open='(' item='column_id' separator=',' close=')'> #{column_id}" +
             "</foreach>" +
             "</script>")
     public int deleteColumns(String[] column_ids);
 
-    @Update("UPDATE auto_echarts SET title=#{title}, echarts_label = #{echartsLabel}, echarts_x=#{echartsX}, echarts_series_name=#{echartsSeriesName}, echarts_series_type=#{echartsSeriesType} , echarts_series_stack=#{echartsSeriesStack}, echarts_series_data=#{echartsSeriesData}, update_echarts_time =#{updateEchartsTime}  WHERE column_id = #{columnId};")
+    @Update("UPDATE echarts SET title=#{title}, echarts_label = #{echartsLabel}, echarts_x=#{echartsX}, echarts_series_name=#{echartsSeriesName}, echarts_series_type=#{echartsSeriesType} , echarts_series_stack=#{echartsSeriesStack}, echarts_series_data=#{echartsSeriesData}, update_echarts_time =#{updateEchartsTime}  WHERE column_id = #{columnId};")
     public int updateEcharts(Echarts echarts);
 
-    @Insert("INSERT INTO `pcompus`.`auto_echarts` (`column_id`, `title`, `echarts_label`, `echarts_x`, `echarts_series_name`, `echarts_series_type`, `echarts_series_stack`, `echarts_series_data`, `update_echarts_time`) VALUES (#{columnId}, #{title}, #{echartsLabel}, #{echartsX}, #{echartsSeriesName}, #{echartsSeriesType}, #{echartsSeriesStack}, #{echartsSeriesData}, #{updateEchartsTime})")
+    @Insert("INSERT INTO `pcompus`.`echarts` (`column_id`, `title`, `echarts_label`, `echarts_x`, `echarts_series_name`, `echarts_series_type`, `echarts_series_stack`, `echarts_series_data`, `update_echarts_time`) VALUES (#{columnId}, #{title}, #{echartsLabel}, #{echartsX}, #{echartsSeriesName}, #{echartsSeriesType}, #{echartsSeriesStack}, #{echartsSeriesData}, #{updateEchartsTime})")
     public int createEcharts(Echarts echarts);
 }
