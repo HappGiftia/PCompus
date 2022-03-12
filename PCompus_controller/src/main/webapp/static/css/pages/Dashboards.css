@@ -269,4 +269,85 @@ a:hover {
 .caption > p {
     color: #555666;
 }
+
 /*新闻板块结束*/
+/*博客板块*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators {
+    margin-left: 20%;
+}
+
+.carousel-indicators li {
+    height: unset;
+    border: none;
+    border-radius: 5px;
+}
+
+/*博客板块结束*/
+
+/*视频板块开始*/
+/*博客板块*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators {
+    margin-left: 20%;
+}
+
+.carousel-indicators li {
+    height: unset;
+    border: none;
+    border-radius: 5px;
+}
+
+/*博客板块结束*/
+
+/*视频板块开始*/
+/*博客板块*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators {
+    margin-left: 20%;
+}
+
+.carousel-indicators li {
+    height: unset;
+    border: none;
+    border-radius: 5px;
+}
+
+/*博客板块结束*/
+
+/*视频板块开始*/
+/*博客板块*/
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators {
+    margin-left: 20%;
+}
+
+.carousel-indicators li {
+    height: unset;
+    border: none;
+    border-radius: 5px;
+}
+
+/*博客板块结束*/
+
+/*视频板块开始*/
+/*博客板块*/
+.carousel-item img {
+    width: 100%;
+}
