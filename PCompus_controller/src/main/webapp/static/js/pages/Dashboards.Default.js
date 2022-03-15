@@ -62,24 +62,24 @@ $(function () {
 
     btn_refreshEcharts = $('#refresh-echarts');
     btn_refreshEcharts.click(function () {
-        let week_column_id = $('#week-echarts-select').val();
-        let day_column_id = $('#day-echarts-select').val();
+        let week_echarts_id = $('#week-echarts-select').val();
+        let day_echarts_id = $('#day-echarts-select').val();
         clearDatas(weekDataEchart);
         clearDatas(dayDataEchart);
-        console.log("当前选择select:" + week_column_id);
-        console.log("当前选择select:" + day_column_id);
-        refreshEchart(week_column_id, weekDataEchart);
-        refreshEchart(day_column_id, dayDataEchart);
+        console.log("当前选择select:" + week_echarts_id);
+        console.log("当前选择select:" + day_echarts_id);
+        refreshEchart(week_echarts_id, weekDataEchart);
+        refreshEchart(day_echarts_id, dayDataEchart);
 
     })
     weekLi.trigger('click');
     musicPlayer()
 });
 
-function refreshEchart(column_id, echartsID) {
+function refreshEchart(echarts_id, echartsID) {
 
     $.getJSON('http://localhost:8080/PCompus/auto_echarts', {
-        column_id: column_id,
+        echarts_id: echarts_id,
     }, function (echarts_json) {
         console.log(echarts_json)
         if ((typeof echarts_json == 'object') && echarts_json.constructor == Object) {

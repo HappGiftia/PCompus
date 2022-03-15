@@ -35,9 +35,9 @@ public class EchartsController {
     //    @RequestMapping(value = "/auto_echarts",produces = "text/html;charset=utf-8")
     @RequestMapping("/auto_echarts")
     @ResponseBody
-    public String autoEcharts(int column_id) throws JsonProcessingException {
-        System.out.println("发来的echarts参数：" + column_id);
-        Echarts autoColumns = echartsService.queryAutoColumns(column_id);
+    public String autoEcharts(int echarts_id) throws JsonProcessingException {
+        System.out.println("发来的echarts参数：" + echarts_id);
+        Echarts autoColumns = echartsService.queryAutoColumns(echarts_id);
 
         String echartsJson = jsonMapper.writeValueAsString(autoColumns);
         System.out.println("controller收到的echarts_json：" + echartsJson);

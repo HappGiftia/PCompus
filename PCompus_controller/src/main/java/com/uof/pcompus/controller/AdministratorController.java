@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.uof.pcompus.pojo.Echarts;
 import com.uof.pcompus.service.EchartsService;
+import com.uof.pcompus.utils.ConverterUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,18 +101,22 @@ public class AdministratorController {
             }
 
             case "Delete": {
-                String[] temp = data.split("\n");
-                String[] datas = new String[temp.length];
+
+                String[] tempArray = data.split("&");
+                System.out.println("要删除的长度" + tempArray.length);
+                long[] tempLong = new long[tempArray.length];
+                for (int i = 0; i < tempLong.length; i++) {
+                    tempLong[i] = ConverterUtil.getAsLong(tempArray[i]);
+                    System.out.println("转换后" + tempLong[i]);
+                }
+                Long[] datas = new Long[tempLong.length];
                 int n = 0;
-                for (int m = 0; m < temp.length; m++) {
-                    if (temp[m].equals("")) {
-                        continue;
-                    }
-                    datas[n++] = temp[m];
+                for (int m = 0; m < tempLong.length; m++) {
+                    datas[n++] = tempLong[m];
                     System.out.println("data的值[" + (n - 1) + "]:" + datas[n - 1]);
                 }
-                int daeleteCount = echartsService.deleteColumns(datas);
-                if (daeleteCount == datas.length) {
+                int deleteColumns = echartsService.deleteColumns(datas);
+                if (deleteColumns == datas.length) {
                     return "1";
                 } else return "0";
             }
@@ -125,7 +130,8 @@ public class AdministratorController {
             }
             case "Create": {
                 Echarts echarts = jsonMapper.readValue(data, Echarts.class);
-                echarts.setColumnId("1");
+                long id = 2022031401;
+                echarts.setEchartsId(id);
                 System.out.println("要创建的echarts=>" + echarts);
                 int createCount = echartsService.createEcharts(echarts);
 

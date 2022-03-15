@@ -2,6 +2,8 @@ package com.uof.pcompus.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.sql.Date;
+
 /**
  * @Description: 一个echarts图表实体
  * @BelongsProject: PCompus
@@ -13,27 +15,55 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(value = {"handler"})
 public class Echarts {
-    private String columnId;
+    private long echartsId;
     private String title;
+    private Date echartsCreateTime;
+    private String echartsAuthor;
+    private String echartsTabs;
     private String echartsLabel;
     private String echartsX;
     private String echartsSeriesName;
     private String echartsSeriesType;
     private String echartsSeriesStack;
     private String echartsSeriesData;
+    private Date updateEchartsTime;
 
-    private String updateEchartsTime;
+
+    public Date getEchartsCreateTime() {
+        return this.echartsCreateTime;
+    }
+
+    public void setEchartsCreateTime(Date echartsCreateTime) {
+        this.echartsCreateTime = echartsCreateTime;
+    }
+
+    public String getEchartsAuthor() {
+        return this.echartsAuthor;
+    }
+
+    public void setEchartsAuthor(String echartsAuthor) {
+        this.echartsAuthor = echartsAuthor;
+    }
+
+    public String getEchartsTabs() {
+        return this.echartsTabs;
+    }
+
+    public void setEchartsTabs(String echartsTabs) {
+        this.echartsTabs = echartsTabs;
+    }
+
 
     public Echarts() {
 
     }
 
-    public String getColumnId() {
-        return columnId;
+    public long getEchartsId() {
+        return this.echartsId;
     }
 
-    public void setColumnId(String columnId) {
-        this.columnId = columnId;
+    public void setEchartsId(long echartsId) {
+        this.echartsId = echartsId;
     }
 
     public String getTitle() {
@@ -93,18 +123,18 @@ public class Echarts {
     }
 
 
-    public String getUpdateEchartsTime() {
-        return updateEchartsTime;
+    public Date getUpdateEchartsTime() {
+        return this.updateEchartsTime;
     }
 
-    public void setUpdateEchartsTime(String updateEchartsTime) {
+    public void setUpdateEchartsTime(Date updateEchartsTime) {
         this.updateEchartsTime = updateEchartsTime;
     }
 
     @Override
     public String toString() {
         return "Echarts{" +
-                "columnId='" + columnId + '\'' +
+                "echartsId='" + echartsId + '\'' +
                 ", title='" + title + '\'' +
                 ", echartsLabel='" + echartsLabel + '\'' +
                 ", echartsX='" + echartsX + '\'' +

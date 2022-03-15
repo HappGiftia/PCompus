@@ -44,7 +44,7 @@ public class EchartsServiceImpl implements EchartsService {
     }
 
     @Override
-    public int deleteColumns(String column_ids[]) {
+    public int deleteColumns(Long column_ids[]) {
         int deleteCount = echartsMapper.deleteColumns(column_ids);
         return deleteCount;
     }

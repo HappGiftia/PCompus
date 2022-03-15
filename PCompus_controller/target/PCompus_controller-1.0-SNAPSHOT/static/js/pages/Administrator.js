@@ -357,11 +357,16 @@ function reloadListener() {
 
     admin_thead.on("click", '#delete-select', function () {
         console.log("当前页面Id:" + active_id);
+        let countIds=[]
         let items = $(".td-select:checked").parents(".item");
         let len = items.length;
         console.log("选中的td：" + len);
-        let countIds = items.children("td:nth-child(2)").text();
-        console.log("选中id：" + countIds);
+        items.children("td:nth-child(2)").each(function () {
+           countIds.push($(this).text()) ;
+        })
+        let countIdsArray = countIds.join('&');
+
+        console.log("转换后："+countIdsArray);
         switch (active_id) {
             case role_admin.attr("id"): {
                 ;
@@ -372,7 +377,7 @@ function reloadListener() {
             }
                 break;
             case echarts_admin.attr("id"): {
-                echartAdmin("18956130026", "Delete", countIds);
+                echartAdmin("18956130026", "Delete", countIdsArray);
 
             }
                 break;
@@ -556,7 +561,7 @@ function initHtml() {
 }
 
 function roleAdmin(administrator_id) {
-    // var str = ["{\"column_id\":1,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"中午?#早上?#晚上\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"line\",\"echarts_series_stack\":\"total&_total&_total&_total\",\"echarts_series_data\":\"100?#200?#300&_400?#200?#100&_100?#600?#666&_100?#600?#1000\",\"updata_echarts\":null}", "{\"column_id\":2,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"pie\",\"echarts_series_stack\":\"null\",\"echarts_series_data\":\"300&_400&_232&_378\",\"updata_echarts\":null}", "{\"column_id\":3,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"中午?#早上?#晚上\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"bar\",\"echarts_series_stack\":\"null\",\"echarts_series_data\":\"100?#200?#300&_400?#200?#100&_100?#600?#666&_100?#600?#1000\",\"updata_echarts\":null}"];
+    // var str = ["{\"echarts_id\":1,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"中午?#早上?#晚上\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"line\",\"echarts_series_stack\":\"total&_total&_total&_total\",\"echarts_series_data\":\"100?#200?#300&_400?#200?#100&_100?#600?#666&_100?#600?#1000\",\"updata_echarts\":null}", "{\"echarts_id\":2,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"pie\",\"echarts_series_stack\":\"null\",\"echarts_series_data\":\"300&_400&_232&_378\",\"updata_echarts\":null}", "{\"echarts_id\":3,\"title\":\"内卷\",\"echarts_label\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_x\":\"中午?#早上?#晚上\",\"echarts_series_name\":\"看书&_睡觉&_吃饭&_玩游戏\",\"echarts_series_type\":\"bar\",\"echarts_series_stack\":\"null\",\"echarts_series_data\":\"100?#200?#300&_400?#200?#100&_100?#600?#666&_100?#600?#1000\",\"updata_echarts\":null}"];
 
     tableConstructor(null, "role");
 }
@@ -635,7 +640,7 @@ function tableConstructor(dataJsonObjs, adminType) {
     $("#admin-tbody").html("");
     switch (adminType) {
         case "echart": {
-            let column_id;
+            let echarts_id;
             let title;
             let echartsLabelList;
             let echartsXList;
@@ -646,7 +651,7 @@ function tableConstructor(dataJsonObjs, adminType) {
             let updateEchartsTime;
             thead_Str = "<tr>\n" +
                 "                                <td><input type=\"checkbox\" class=\"cb-select-all\"/>全选</td>\n" +
-                "                                <td>column_id</td>\n" +
+                "                                <td>echarts_id</td>\n" +
                 "                                <td>title</td>\n" +
                 "                                <td>echarts_label</td>\n" +
                 "                                <td>echarts_x</td>\n" +
@@ -666,7 +671,7 @@ function tableConstructor(dataJsonObjs, adminType) {
             $("#admin-thead").append(thead_Str);
             for (let i = 0; i < column_length; i++) {
                 let dataJsonObj = constractorJsonObj(dataJsonObjs[i])
-                column_id = dataJsonObj.column_id;
+                echarts_id = dataJsonObj.echarts_id;
                 title = dataJsonObj.title;
                 echartsLabelList = dataJsonObj.echarts_label;
                 echartsXList = dataJsonObj.echarts_x;
@@ -677,7 +682,7 @@ function tableConstructor(dataJsonObjs, adminType) {
                 updateEchartsTime = dataJsonObj.update_echarts_time;
                 console.log("图表管理:\n");
                 console.log(dataJsonObj)
-                console.log("column_id:" + column_id);
+                console.log("echarts_id:" + echarts_id);
                 console.log("title:" + title);
                 console.log("echartsLabelList:" + echartsLabelList);
                 console.log("echartsXList:" + echartsXList);
@@ -689,7 +694,7 @@ function tableConstructor(dataJsonObjs, adminType) {
                 let tbody_Str = "<tr class=\"item\">\n" +
                     "    <td><input type=\"checkbox\"  class=\"td-select\"></td>\n" +
                     "        <td>" +
-                    column_id +
+                    echarts_id +
                     "</td>\n" +
                     "        <td>" + title + "</td>\n" +
                     "        <td>" + echartsLabelList + "</td>\n" +
@@ -780,6 +785,7 @@ var adminEchartsWindow = function () {
 
     $('#echarts-modify-window').append(
         '<label id="title-window"><span>当前标题的值为：</span><span></span><br><span>修改标题值：</span><input type="text"></label><br>' +
+        '<label id="show-echarts-tabs-window"><span>当前图表标签：</span><span></span><br><span>选择图表标签：</span><select id="select-echarts-tabs" name="echarts_tab"><option></option></select></label><br>'+
         '<label id="label-window"><span>当前纵坐标各值的名字为：</span><span></span><br><span>修改纵坐标值的名字：</span><input type="text"></label><br>' +
         '<label id="x-window"><span>当前横坐标轴的值为：</span><span></span><br><span>修改横坐标轴的值：</span><input type="text"></label><br>' +
         '<label id="stack-window"><span>当前纵坐标值展示名称合集为：</span><span></span><br><span>修改横坐标轴值展示名称合集：</span><input type="text"></label><br>'
@@ -1183,7 +1189,7 @@ function constructLineSeriesArray(type) {
 
 function reConstructData(type) {
 
-    let column_id;
+    let echarts_id;
     let title;
     let echarts_label = '';
     let echarts_x;
@@ -1192,7 +1198,7 @@ function reConstructData(type) {
     let echarts_series_stack;
     let echarts_series_date;
 
-    column_id = clickId;
+    echarts_id = clickId;
     title = this.title;
     echarts_label = echartsLabelList.join(split_y_symbol);
     echarts_x = echartsXList.join(split_x_symbol);
@@ -1221,7 +1227,7 @@ function reConstructData(type) {
             break;
 
     }
-    console.log("column_id:" + column_id);
+    console.log("echarts_id:" + echarts_id);
     console.log("title:" + title);
     console.log("echartsLabelList:" + echarts_label);
     console.log("echartsXList:" + echarts_x);
@@ -1231,7 +1237,7 @@ function reConstructData(type) {
     console.log("echartsSeriesDate:" + echarts_series_date);
 
     let echartsModifyItem = {};
-    echartsModifyItem.column_id = column_id;
+    echartsModifyItem.echarts_id = echarts_id;
     echartsModifyItem.title = title;
     echartsModifyItem.echarts_label = echarts_label;
     echartsModifyItem.echarts_x = echarts_x;
