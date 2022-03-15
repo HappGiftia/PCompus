@@ -357,16 +357,16 @@ function reloadListener() {
 
     admin_thead.on("click", '#delete-select', function () {
         console.log("当前页面Id:" + active_id);
-        let countIds=[]
+        let countIds = []
         let items = $(".td-select:checked").parents(".item");
         let len = items.length;
         console.log("选中的td：" + len);
         items.children("td:nth-child(2)").each(function () {
-           countIds.push($(this).text()) ;
+            countIds.push($(this).text());
         })
         let countIdsArray = countIds.join('&');
 
-        console.log("转换后："+countIdsArray);
+        console.log("转换后：" + countIdsArray);
         switch (active_id) {
             case role_admin.attr("id"): {
                 ;
@@ -785,7 +785,7 @@ var adminEchartsWindow = function () {
 
     $('#echarts-modify-window').append(
         '<label id="title-window"><span>当前标题的值为：</span><span></span><br><span>修改标题值：</span><input type="text"></label><br>' +
-        '<label id="show-echarts-tabs-window"><span>当前图表标签：</span><span></span><br><span>选择图表标签：</span><select id="select-echarts-tabs" name="echarts_tab"><option></option></select></label><br>'+
+        '<label id="show-echarts-tabs-window"><span>当前图表标签：</span><span></span><br><span>选择图表标签：</span><select id="select-echarts-tabs" name="echarts_tab"><option></option></select></label><br>' +
         '<label id="label-window"><span>当前纵坐标各值的名字为：</span><span></span><br><span>修改纵坐标值的名字：</span><input type="text"></label><br>' +
         '<label id="x-window"><span>当前横坐标轴的值为：</span><span></span><br><span>修改横坐标轴的值：</span><input type="text"></label><br>' +
         '<label id="stack-window"><span>当前纵坐标值展示名称合集为：</span><span></span><br><span>修改横坐标轴值展示名称合集：</span><input type="text"></label><br>'
