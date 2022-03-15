@@ -46,7 +46,7 @@ public interface EchartsMapper {
             "<foreach collection='array' open='(' item='echarts_id' index='index' separator=',' close=')'> #{echarts_id}" +
             "</foreach>" +
             "</script>")
-    public int deleteColumns(Long[] echarts_ids);
+    public int deleteColumns(Long[] echartsIds);
 
     @Update("UPDATE echarts SET title=#{title}, echarts_label = #{echartsLabel}, echarts_x=#{echartsX}, echarts_series_name=#{echartsSeriesName}, echarts_series_type=#{echartsSeriesType} , echarts_series_stack=#{echartsSeriesStack}, echarts_series_data=#{echartsSeriesData}  WHERE echarts_id = #{echartsId};")
     public int updateEcharts(Echarts echarts);

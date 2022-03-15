@@ -24,7 +24,7 @@ public interface EchartsService {
     public Echarts queryUserColumns(int column_id);
 
     //    删除指定id号的图表
-    public int deleteColumns(Long column_ids[]);
+    public int deleteColumns(Long[] columnIds);
 
     //修改前端传来的图表
     public int updateEcharts(Echarts echarts);

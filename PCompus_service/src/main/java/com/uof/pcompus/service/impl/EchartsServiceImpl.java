@@ -25,15 +25,12 @@ public class EchartsServiceImpl implements EchartsService {
 
     @Override
     public List<Echarts> queryAllEcharts() {
-        List<Echarts> echartsList = echartsMapper.queryAllEcharts();
-        System.out.println("管理员找到的图表数：" + echartsList.size());
-        return echartsList;
+        return echartsMapper.queryAllEcharts();
     }
 
     @Override
     public Echarts queryAutoColumns(int column_id) {
-        Echarts echarts = echartsMapper.queryAutoColumns(column_id);
-        return echarts;
+        return echartsMapper.queryAutoColumns(column_id);
 
     }
 
@@ -44,21 +41,18 @@ public class EchartsServiceImpl implements EchartsService {
     }
 
     @Override
-    public int deleteColumns(Long column_ids[]) {
-        int deleteCount = echartsMapper.deleteColumns(column_ids);
-        return deleteCount;
+    public int deleteColumns(Long[] columnIds) {
+        return echartsMapper.deleteColumns(columnIds);
     }
 
     @Override
     public int updateEcharts(Echarts echarts) {
-        int updateCount = echartsMapper.updateEcharts(echarts);
-        return updateCount;
+        return echartsMapper.updateEcharts(echarts);
     }
 
     @Override
     public int createEcharts(Echarts echarts) {
-        int createCount = echartsMapper.createEcharts(echarts);
-        return createCount;
+        return echartsMapper.createEcharts(echarts);
     }
 
 }

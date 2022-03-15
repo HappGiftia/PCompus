@@ -88,6 +88,7 @@ public class AdministratorController {
         switch (event_type) {
             case "GetRes": {
                 List<Echarts> echartsList = echartsService.queryAllEcharts();
+                System.out.println("管理员找到的图表数：" + echartsList.size());
                 ArrayList<String> echartsJsons = new ArrayList<>();
 
                 for (Echarts echart :
@@ -253,4 +254,9 @@ public class AdministratorController {
         return null;
     }
 
+    @RequestMapping("/get_tabs")
+    public String getTabs() {
+
+        return "";
+    }
 }
