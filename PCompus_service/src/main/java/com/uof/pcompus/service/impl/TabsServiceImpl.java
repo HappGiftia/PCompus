@@ -2,6 +2,7 @@ package com.uof.pcompus.service.impl;
 
 import com.uof.pcompus.mapper.TabsMapper;
 import com.uof.pcompus.pojo.Tab;
+import com.uof.pcompus.service.TabsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * @Version: 1.0
  */
 @Service("tabsService")
-public class TabsServiceImpl {
+public class TabsServiceImpl implements TabsService {
     @Autowired
     private TabsMapper tabsMapper;
 

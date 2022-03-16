@@ -14,7 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="PCompus_app" target="1.7" />
-      <module name="PCompus_controller" target="1.7" />
+      <module name="PCompus_controller" target="8" />
       <module name="PCompus_mapper" target="1.7" />
       <module name="PCompus_pojo" target="1.7" />
       <module name="PCompus_service" target="1.7" />

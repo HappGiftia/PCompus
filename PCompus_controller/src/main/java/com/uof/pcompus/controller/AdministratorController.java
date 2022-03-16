@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.uof.pcompus.pojo.Echarts;
+import com.uof.pcompus.pojo.Tab;
 import com.uof.pcompus.service.EchartsService;
+import com.uof.pcompus.service.TabsService;
 import com.uof.pcompus.utils.ConverterUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ import java.util.List;
 public class AdministratorController {
     @Autowired
     private EchartsService echartsService;
+    @Autowired
+    private TabsService tabsService;
     public static ObjectMapper jsonMapper = new ObjectMapper();
 
     static {
@@ -133,6 +137,7 @@ public class AdministratorController {
                 Echarts echarts = jsonMapper.readValue(data, Echarts.class);
                 long id = 2022031401;
                 echarts.setEchartsId(id);
+                echarts.setEchartsAuthor(222);
                 System.out.println("要创建的echarts=>" + echarts);
                 int createCount = echartsService.createEcharts(echarts);
 
@@ -255,8 +260,16 @@ public class AdministratorController {
     }
 
     @RequestMapping("/get_tabs")
+    @ResponseBody
     public String getTabs() {
-
-        return "";
+        List<Tab> tabs = tabsService.getAllTabs();
+        List<String> tabNames = new ArrayList<>();
+        for (Tab tab :
+                tabs) {
+            tabNames.add(tab.getTabName());
+        }
+        String tabsString = String.join("&&", tabNames);
+        System.out.println("找到的tab==》" + tabsString);
+        return tabsString;
     }
 }

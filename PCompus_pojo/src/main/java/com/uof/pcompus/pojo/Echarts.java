@@ -1,8 +1,9 @@
 package com.uof.pcompus.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @Description: 一个echarts图表实体
@@ -17,8 +18,9 @@ import java.sql.Date;
 public class Echarts {
     private long echartsId;
     private String title;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     private Date echartsCreateTime;
-    private String echartsAuthor;
+    private long echartsAuthor;
     private String echartsTabs;
     private String echartsLabel;
     private String echartsX;
@@ -26,6 +28,7 @@ public class Echarts {
     private String echartsSeriesType;
     private String echartsSeriesStack;
     private String echartsSeriesData;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     private Date updateEchartsTime;
 
 
@@ -37,11 +40,11 @@ public class Echarts {
         this.echartsCreateTime = echartsCreateTime;
     }
 
-    public String getEchartsAuthor() {
+    public long getEchartsAuthor() {
         return this.echartsAuthor;
     }
 
-    public void setEchartsAuthor(String echartsAuthor) {
+    public void setEchartsAuthor(long echartsAuthor) {
         this.echartsAuthor = echartsAuthor;
     }
 

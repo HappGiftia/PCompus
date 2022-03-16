@@ -20,6 +20,7 @@ var blog_admin;
 var videos_admin;
 var note_admin;
 var tab_admin;
+var allTabsList;
 var btn_create;
 var btn_refresh;
 var menu_li_active;
@@ -27,8 +28,10 @@ var btn_delete_item;
 var active_id;
 var clickId = null;
 var title = null;
+var echartsTabs = null;
 var echartsCreateType = null;
 var echartsLabelList = [];
+var echartsTabsList = [];
 var echartsXList = [];
 var echartsXCount = null;
 var echartsYCount = null;
@@ -103,6 +106,8 @@ $(function () {
         menu_li_active.removeClass('active');
         echarts_admin.addClass('active');
         echartAdmin("18956130026", "GetRes");
+        echartAdmin("18956130026", "GetTab");
+
         reloadListener();
     });
     comment_admin.click(function () {
@@ -162,7 +167,7 @@ $(function () {
     });
     btn_create.click(function () {
         create()
-        after:$('#title-window').after('<br><label id="show-echarts-type"><span>当前图表类型：</span><span></span><br><span>选择图表类型：</span><select id="create-echarts-type" name="echarts_type"><option  class="selected">line</option><option>pie</option><option>bar</option><option>tree</option></select></label>')
+        after:$('#title-window').after('<br><label id="show-echarts-type"><span>当前图表类型：</span><span></span><br><span>选择图表类型：</span><select id="create-echarts-type" name="echarts_type"><option>line</option><option>pie</option><option>bar</option><option>tree</option></select></label>')
         $('#echarts-modify-window').ready(function () {
             $('#save-modify-button-window').attr('id', 'save-create-button-window');
             $('#save-create-button-window').text('创建并提交');
@@ -179,6 +184,8 @@ $(function () {
                 break;
             case echarts_admin.attr("id"): {
                 echartAdmin("18956130026", "GetRes");
+                echartAdmin("18956130026", "GetTab");
+
             }
                 break;
             case comment_admin.attr("id"): {
@@ -441,7 +448,9 @@ function reloadWindowBlur() {
             let echarts_stack_input = $('#stack-window > input');
             let echarts_x_input = $('#admin-x-datas-window input')
             let echarts_y_input = $('#admin-series-datas-window input');
-            let type_select = $('#create-echarts-type')
+            let type_select = $('#create-echarts-type');
+            let tabs_select = $('#select-echarts-tabs');
+
 
             title_input.unbind();
             label_input.unbind();
@@ -450,6 +459,7 @@ function reloadWindowBlur() {
             echarts_x_input.unbind();
             echarts_y_input.unbind();
             type_select.unbind();
+            tabs_select.unbind();
 
             title_input.blur(function () {
                 title = title_input.val();
@@ -508,9 +518,15 @@ function reloadWindowBlur() {
             })
             type_select.change(function () {
                 echartsCreateType = $(this).val()
-                refreshShowDatas()
+                refreshShowDatas();
             })
-
+            tabs_select.change(function () {
+                if (echartsTabsList.indexOf($(this).val()) === -1) {
+                    echartsTabsList.push($(this).val());
+                }
+                console.log("tabsList" + echartsTabsList);
+                refreshShowDatas();
+            })
         }
             break;
         case comment_admin.attr("id"): {
@@ -558,6 +574,7 @@ function reloadWindowBlur() {
 function initHtml() {
     roleAdmin("18956130026");
     reloadListener();
+
 }
 
 function roleAdmin(administrator_id) {
@@ -625,6 +642,14 @@ function echartAdmin(administrator_id, event_type, data) {
                 }
             )
         }
+        case"GetTab": {
+            $.getJSON('http://localhost:8080/PCompus/get_tabs', {
+                administrator_id: administrator_id
+            }, function (tabsJson) {
+                console.log("找到的tabs:" + tabsJson);
+                allTabsList = transTabList(tabsJson);
+            })
+        }
     }
 
 }
@@ -642,6 +667,9 @@ function tableConstructor(dataJsonObjs, adminType) {
         case "echart": {
             let echarts_id;
             let title;
+            let echartsCreateTime;
+            let echartsAuthor;
+            let echartsTabs
             let echartsLabelList;
             let echartsXList;
             let echartsSeriesName;
@@ -659,6 +687,9 @@ function tableConstructor(dataJsonObjs, adminType) {
                 "                                <td>echarts_series_type</td>\n" +
                 "                                <td>echarts_series_stack</td>\n" +
                 "                                <td>echarts_series_data</td>\n" +
+                "<td>echarts_tabs</td>\n" +
+                "<td>echarts_author</td>\n" +
+                " <td>echarts_create_time</td>\n" +
                 "<td>update_echarts_time</td>\n" +
                 "\n" +
                 "                                <td>\n" +
@@ -673,6 +704,10 @@ function tableConstructor(dataJsonObjs, adminType) {
                 let dataJsonObj = constractorJsonObj(dataJsonObjs[i])
                 echarts_id = dataJsonObj.echarts_id;
                 title = dataJsonObj.title;
+                echartsCreateTime = dataJsonObj.echarts_create_time;
+                echartsTabs = dataJsonObj.echarts_tabs;
+                echartsTabsList = transTabList(echartsTabs);
+                echartsAuthor = dataJsonObj.echarts_author;
                 echartsLabelList = dataJsonObj.echarts_label;
                 echartsXList = dataJsonObj.echarts_x;
                 echartsSeriesName = dataJsonObj.echarts_series_name;
@@ -681,7 +716,7 @@ function tableConstructor(dataJsonObjs, adminType) {
                 echartsSeriesData = dataJsonObj.echarts_series_data;
                 updateEchartsTime = dataJsonObj.update_echarts_time;
                 console.log("图表管理:\n");
-                console.log(dataJsonObj)
+                console.log("后端发来的Json:" + JSON.stringify(dataJsonObj))
                 console.log("echarts_id:" + echarts_id);
                 console.log("title:" + title);
                 console.log("echartsLabelList:" + echartsLabelList);
@@ -703,6 +738,9 @@ function tableConstructor(dataJsonObjs, adminType) {
                     "        <td>" + echartsSeriesType + "</td>\n" +
                     "        <td>" + echartsSeriesStack + "</td>\n" +
                     "        <td>" + echartsSeriesData + "</td>\n" +
+                    "<td>" + echartsTabs + "</td>\n" +
+                    "<td>" + echartsAuthor + "</td>\n" +
+                    "<td>" + echartsCreateTime + "</td>\n" +
                     "<td>" + updateEchartsTime + "</td>\n" +
 
                     "<td>\n" +
@@ -785,7 +823,7 @@ var adminEchartsWindow = function () {
 
     $('#echarts-modify-window').append(
         '<label id="title-window"><span>当前标题的值为：</span><span></span><br><span>修改标题值：</span><input type="text"></label><br>' +
-        '<label id="show-echarts-tabs-window"><span>当前图表标签：</span><span></span><br><span>选择图表标签：</span><select id="select-echarts-tabs" name="echarts_tab"><option></option></select></label><br>' +
+        '<label id="show-echarts-tabs-window"><span>当前图表标签：</span><span></span><br><span>选择图表标签：</span><select id="select-echarts-tabs" name="echarts_tab"></select></label><br>' +
         '<label id="label-window"><span>当前纵坐标各值的名字为：</span><span></span><br><span>修改纵坐标值的名字：</span><input type="text"></label><br>' +
         '<label id="x-window"><span>当前横坐标轴的值为：</span><span></span><br><span>修改横坐标轴的值：</span><input type="text"></label><br>' +
         '<label id="stack-window"><span>当前纵坐标值展示名称合集为：</span><span></span><br><span>修改横坐标轴值展示名称合集：</span><input type="text"></label><br>'
@@ -908,6 +946,8 @@ function refreshShowDatas() {
     let label_span = $('#label-window > span:nth-child(2)')
     let label_input = $('#label-window > input')
     let type_span = $('#show-echarts-type >span:nth-child(2)');
+    let tab_span = $('#show-echarts-tabs-window>span:nth-child(2)')
+    let tab_select = $('#select-echarts-tabs');
     let echarts_x_span = $('#x-window > span:nth-child(2)')
     let echarts_x_input = $('#x-window > input').val(echartsXList);
     let echarts_stack_span = $('#stack-window > span:nth-child(2)').text(echartsSeriesStackList);
@@ -924,9 +964,9 @@ function refreshShowDatas() {
     }
     ;
 
-
+    // tab_select.empty();
     type_span.text(echartsCreateType);
-
+    tab_span.text(echartsTabsList);
     $('#show-x-datas-window > span').empty();
     $('#admin-x-datas-window').empty();
     $('#show-series-datas-window > span').empty();
@@ -961,6 +1001,11 @@ function refreshShowDatas() {
         }
         for (let i = 0; i < echartsYCount; i++) {
             $('#admin-series-datas-window').append('<span>' + echartsLabelList[i] + ':' + '</span><input type="text" id="datas-input-' + i + '-window" value="' + echartsSeriesDatas[i] + '"><br>')
+        }
+        if (tab_select.html().length === 0) {
+            for (let i = 0; i < allTabsList.length; i++) {
+                tab_select.append("<option>" + allTabsList[i] + "</option");
+            }
         }
 
 
@@ -1192,6 +1237,7 @@ function reConstructData(type) {
     let echarts_id;
     let title;
     let echarts_label = '';
+    let echarts_tabs = ''
     let echarts_x;
     let echarts_series_name;
     let echarts_series_type;
@@ -1200,6 +1246,7 @@ function reConstructData(type) {
 
     echarts_id = clickId;
     title = this.title;
+    echarts_tabs = reTransTabList(echartsTabsList);
     echarts_label = echartsLabelList.join(split_y_symbol);
     echarts_x = echartsXList.join(split_x_symbol);
     echarts_series_name = echartsSeriesNameList.join(split_y_symbol);
@@ -1239,6 +1286,7 @@ function reConstructData(type) {
     let echartsModifyItem = {};
     echartsModifyItem.echarts_id = echarts_id;
     echartsModifyItem.title = title;
+    echartsModifyItem.echarts_tabs = echarts_tabs;
     echartsModifyItem.echarts_label = echarts_label;
     echartsModifyItem.echarts_x = echarts_x;
     echartsModifyItem.echarts_series_name = echarts_series_name;
@@ -1801,6 +1849,8 @@ function clearWindowDatas(echartsId) {
     echartsCreateType = null;
     echartsSeriesClickType = null
     echartsLabelList = [];
+    echartsTabsList = [];
+    allTabsList = [];
     echartsXList = [];
     echartsSeriesStackList = [];
     echartsXCount = 0;
@@ -1813,6 +1863,15 @@ function clearWindowDatas(echartsId) {
     $('#show-series-datas-window > span ').empty();
     $('#admin-series-datas-window').empty();
 }
+
+function transTabList(echartsTabsJson) {
+    return echartsTabsJson.split('&&');
+}
+
+function reTransTabList(tabsList) {
+    return tabsList.join('&&');
+}
+
 
 /**
  * @Description: 判断JS变量是否空值，如果是undefined， null， ''， NaN，false，0，[]，{} ，空白字符串，都返回true，否则返回false
@@ -1843,3 +1902,4 @@ function isEmpty(v) {
     }
     return false;
 }
+

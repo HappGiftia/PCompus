@@ -21,7 +21,7 @@ public interface EchartsMapper {
     @Results(id = "echarts", value = {
             @Result(column = "echarts_id", property = "echartsId", jdbcType = JdbcType.BIGINT, id = true),
             @Result(column = "title", property = "title", jdbcType = JdbcType.VARCHAR),
-            @Result(column = "echarts_create_time", property = "echartsCreateTime", jdbcType = JdbcType.DATE),
+            @Result(column = "echarts_create_time", property = "echartsCreateTime"),
             @Result(column = "echarts_author", property = "echartsAuthor", jdbcType = JdbcType.VARCHAR),
             @Result(column = "echarts_tabs", property = "echartsTabs", jdbcType = JdbcType.VARCHAR),
             @Result(column = "echarts_label", property = "echartsLabel", jdbcType = JdbcType.VARCHAR),
@@ -30,7 +30,7 @@ public interface EchartsMapper {
             @Result(column = "echarts_series_type", property = "echartsSeriesType", jdbcType = JdbcType.VARCHAR),
             @Result(column = "echarts_series_stack", property = "echartsSeriesStack", jdbcType = JdbcType.VARCHAR),
             @Result(column = "echarts_series_data", property = "echartsSeriesData", jdbcType = JdbcType.VARCHAR),
-            @Result(column = "update_echarts_time", property = "updateEchartsTime", jdbcType = JdbcType.DATE)
+            @Result(column = "update_echarts_time", property = "updateEchartsTime")
     })
     public Echarts queryAutoColumns(long echarts_id);
 
