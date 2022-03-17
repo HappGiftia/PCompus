@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="PCompus_controller-1.0-SNAPSHOT.war">
+    <root id="archive" name="PCompus.war">
       <element id="artifact" artifact-name="PCompus_controller:war exploded" />
     </root>
   </artifact>

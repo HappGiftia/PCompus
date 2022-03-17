@@ -1,3 +1,5 @@
+com\uof\pcompus\service\TabsService.class
+com\uof\pcompus\service\impl\TabsServiceImpl.class
 com\uof\pcompus\service\EchartsService.class
 com\uof\pcompus\service\RegisterService.class
 com\uof\pcompus\service\impl\EchartsServiceImpl.class

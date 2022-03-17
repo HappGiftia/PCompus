@@ -135,7 +135,7 @@ public class AdministratorController {
             }
             case "Create": {
                 Echarts echarts = jsonMapper.readValue(data, Echarts.class);
-                long id = 2022031401;
+                long id = 2022031701;
                 echarts.setEchartsId(id);
                 echarts.setEchartsAuthor(222);
                 System.out.println("要创建的echarts=>" + echarts);

@@ -68,6 +68,7 @@ $(function () {
         clearDatas(dayDataEchart);
         console.log("当前选择select:" + week_echarts_id);
         console.log("当前选择select:" + day_echarts_id);
+
         refreshEchart(week_echarts_id, weekDataEchart);
         refreshEchart(day_echarts_id, dayDataEchart);
 
@@ -608,7 +609,7 @@ weekLi.click(function () {
     weekTab.addClass('active');
     dayLi.removeClass('active')
     dayTab.removeClass('active');
-    refreshEchart(1, weekDataEchart);
+    refreshEchart(2022031401, weekDataEchart);
     clearDatas(dayDataEchart);
 
 })
@@ -617,7 +618,7 @@ dayLi.click(function () {
     dayTab.addClass('active');
     weekLi.removeClass('active')
     weekTab.removeClass('active');
-    refreshEchart(1, dayDataEchart);
+    refreshEchart(2022031401, dayDataEchart);
     clearDatas(weekDataEchart);
 })
 
