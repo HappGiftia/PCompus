@@ -3,10 +3,6 @@
     display: block;
 }
 
-.row {
-    width: 100%;
-
-}
 
 .hiddenDom {
     visibility: hidden;
@@ -28,6 +24,11 @@
 
 .nav-tabs {
     float: left;
+}
+
+.canvas-container {
+    width: 100rem;
+    height: 500px;
 }
 
 .footer {

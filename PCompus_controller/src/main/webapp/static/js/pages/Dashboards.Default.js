@@ -660,7 +660,31 @@ $(function () {
 
         $(window).scroll(positionFooter).resize(positionFooter);
     });
+
+    window.addEventListener('resize', function () {
+        weekDataEchart.resize();
+        dayDataEchart.resize();
+    })
 })
+
+
+var CanvasAutoResize = {
+    draw: function () {
+        var ctx = $('canvas').getContext('2d');
+        var canvasContainer = $('.canvas-container');
+        ctx.canvas.width = canvasContainer.offsetWidth - 2;
+        ctx.canvas.height = canvasContainer.offsetHeight - 2;
+    },
+
+    initialize: function () {
+        var self = CanvasAutoResize;
+        self.draw();
+        $(window).on('resize', function (event) {
+            self.draw();
+        });
+    }
+}
+
 
 function musicPlayer() {
     //底部显示区域总宽度
