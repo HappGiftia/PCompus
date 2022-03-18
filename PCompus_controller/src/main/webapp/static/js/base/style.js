@@ -32,4 +32,13 @@ $(function () {
             $(this).css('visibility', 'collapse');
         }
     );
+    // $('.navbar-nav>.nav-item:not(:last)').hover(
+    $('.navbar-nav>.nav-item').hover(
+        function () {
+            $(this).find('.dropdown-menu').addClass('show');
+            $(this).siblings().find('.dropdown-menu').removeClass('show');
+        }, function () {
+            $(this).find('.dropdown-menu').removeClass('show');
+        }
+    )
 });
