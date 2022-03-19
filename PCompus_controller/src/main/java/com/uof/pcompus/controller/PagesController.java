@@ -1,7 +1,12 @@
 package com.uof.pcompus.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -287,8 +292,15 @@ public class PagesController {
      * @Date: 2021/11/15
      */
     @RequestMapping("/Pages.News.Detail")
-    public String Pages_News_Detail() {
-        return "Pages.News.Detail";
+    public ModelAndView Pages_News_Detail(String newsId) {
+        System.out.println("前端请求的新闻ID" + newsId);
+        ModelMap model = new ModelMap();
+        if (null != newsId) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("news_id", newsId);
+            model.addAllAttributes(map);
+        }
+        return new ModelAndView("Pages.News.Detail", model);
     }
 
     /**

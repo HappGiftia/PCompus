@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="fav_list" id="info"
+     style="border-radius: 12px; margin-left: 10%; margin-right: 10%;">
+    <div class="fav_list_box">
+        <div class="fav_list_title">
+            <h3 class="fav_list_title_h3">已写文章</h3>
+            <div class="fav_num">
+                共<span>${userArticles.size()}</span>条
+            </div>
+        </div>
+        <div class="card-columns"
+             style="margin-top: 20px; margin-left: 5%; width: 90%; column-count: 5; column-gap: 2.25rem;">
+            <c:forEach items="${userArticles}" var="Article" varStatus="s">
+
+                <div class="card" id="article-div" onclick="jump('${Article.getArticle_id()}')">
+                    <img src="${Article.getArticleImageURL() }" class="card-img-top"
+                         alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${Article.getArticleTitle() }</h5>
+                        <p class="card-text">${Article.getArticleDescription() }</p>
+                        <label style="text-align: right; float: right; color: #635255;">
+                            <p>${Article.getArticleCategory() }</p>
+                            <p>${showArticleCreatetimes.get(s.index)}</p>
+                        </label>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var articleDiv = document.getElementById("article-div");
+
+
+    function jump(articleId) {
+        window.location.href = "http://127.0.0.1:8080/travel/Details" + "?articleId=" + articleId;
+    }
+</script>
+</body>
+</html>

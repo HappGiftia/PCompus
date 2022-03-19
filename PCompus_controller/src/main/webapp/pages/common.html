@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_ip7u14w8cls.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.Default.css"/>
@@ -20,59 +20,67 @@
 </head>
 <body>
 <div class="head">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <!-- Brand -->
         <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <!-- 首页 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+                    </div>
+                </li>
+                <!-- 应用 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                    </div>
+                </li>
+                <!-- 页面 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                        页面
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                    </div>
+                </li>
+                <!-- 功能-->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                    </div>
+                </li>
+            </ul>
 
+        </div>
         <!-- Links -->
-        <ul class="navbar-nav">
-            <!-- 首页 -->
-            <li class="nav-item collapse navbar-collapse dropdown">
-                <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
-                <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
-                </div>
-            </li>
-            <!-- 应用 -->
-            <li class="nav-item collapse navbar-collapse dropdown">
-                <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
-                <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
-                </div>
-            </li>
-            <!-- 页面 -->
-            <li class="nav-item collapse navbar-collapse dropdown">
-                <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
-                <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
-                    页面
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
-                </div>
-            </li>
-            <!-- 功能-->
-            <li class="nav-item collapse navbar-collapse dropdown">
-                <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
-                <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
-                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
-                </div>
-            </li>
-        </ul>
         <!-- 天气 -->
         <div class="nav-item collapse navbar-collapse weather-nav">
             <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
@@ -111,20 +119,104 @@
                 <i class="iconfont icon-xuexizhong-nav"></i>
             </a>
         </div>
-        <!-- 用户头像 -->
-        <div class="nav-item login-user" id="login-user">
-            <img
-                    src="/PCompus/static/img/profile/profile-5.jpg"
-                    alt="用户头像"
-                    id="login-user-image"
-                    class="login-user-image"
-            />
+        <div class="nav-item collapse navbar-collapse login-user">
+            <ul class="navbar-nav mr-auto">
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" style="height: 60px"> <img alt=""
+                                                                                          class="img-circle"
+                                                                                          src="/PCompus/static/img/profile/profile-5.jpg"
+                                                                                          width="38px"
+                                                                                          height="38px"/> <span
+                        style="color: #000000; font-size: 15px">登录用户
+									</span>
+                </a>
+                    <div class="dropdown-menu pull-right"
+                         style="background: #FFFFFF;border-radius: 12px; width: 320px; overflow: hidden">
+                        <div
+                                style=" border-bottom: 2px solid #eeeeee">
+
+                            <div
+                                    style="color: #323534; text-align: center; line-height: 36px; font-size: 15px"><img
+                                    class="img-circle"
+                                    src="/PCompus/static/img/profile/profile-5.jpg"
+                                    style="margin: 16px 0 17px 0;width: 38px; height: 38px;" alt=""/>
+                                <span>登录用户</span>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/UserInfo')">
+                                <i class="iconfont icon-wode-user"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    个人中心</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-zhanghaoguanli"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号管理</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-mimazhaohuibaocuo "
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号找回</p>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-touxiang"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    修改头像</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont iconfont icon-xiaoxitishi"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    消息</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-bangzhu"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    帮助中心</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row"
+                             style="margin-top: 20px; margin-left: 33%; cursor: pointer;"
+                             id="logout"
+                             onclick="location.href = '${pageContext.request.contextPath}/Logout';">
+                            <button type="button" class="btn btn-outline-primary"
+                                    style="width: 100px;height: 30px;line-height: 23px;">
+                                <i class="iconfont icon-tuichu" style="line-height: unset"></i> 退出登录
+                            </button>
+                        </div>
+                        .
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
     <div class="login-user-dropdown"></div>
     <div class="container" style="height: 50px;font-size:22px">
         <div class="row breadcrumb precentpage-bread-nav">
-            <div class="col precentpage-nav-head">新闻详情</div>
+            <div class="col precentpage-nav-head">数据</div>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">

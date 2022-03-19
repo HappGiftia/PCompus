@@ -74,6 +74,10 @@ $(function () {
 
     })
     weekLi.trigger('click');
+    window.addEventListener('resize', function () {
+        weekDataEchart.resize();
+        dayDataEchart.resize();
+    })
     musicPlayer()
 });
 

@@ -72,10 +72,7 @@ $(function () {
         $(window).scroll(positionFooter).resize(positionFooter);
     });
 
-    window.addEventListener('resize', function () {
-        weekDataEchart.resize();
-        dayDataEchart.resize();
-    })
+
     musicPlayer();
 })
 
