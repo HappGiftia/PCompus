@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>管理员列表</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_8xik08vz46f.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Administrator.css"/>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/pages/Administrator.js"></script>
+</head>
+<body>
+<!-- logo区 -->
+<div class="logo">
+    <img src="/PCompus/static/img/logo/icon_PCompus.png"/>
+    <span id="login-admin">18756151925</span>
+    <a href="#">[退出]</a>
+</div>
+<!-- 菜单区 -->
+<div class="menu">
+    <div class="menu-container">
+        <i class="iconfont icon-xiangzuojiantou menu-icon" id="left"></i>
+        <div>
+            <ul class="menu-ul">
+                <li>
+                    <div>
+                        <i
+                                class="iconfont icon-renyuanguanli menu-icon active"
+                                id="role-admin"
+                        ></i>
+                        <label for="role-admin">角色管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i
+                                class="iconfont icon-renyuanleixing menu-icon"
+                                id="account-admin"
+                        ></i>
+                        <label for="account-admin">账户管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i
+                                class="iconfont icon-gongyingshangshujufenxi menu-icon"
+                                id="echarts-admin"
+                        ></i>
+                        <label for="echarts-admin">图表管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-wenjuanrenwu menu-icon" id="comment-admin"></i>
+                        <label for="comment-admin">评论管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i
+                                class="iconfont icon-renyuanguanli menu-icon"
+                                id="compus-practice-admin"
+                        ></i>
+                        <label for="compus-practice-admin">校园实践</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i
+                                class="iconfont icon-renyuanguanli menu-icon"
+                                id="user-practice-admin"
+                        ></i>
+                        <label for="user-practice-admin">用户实践</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="sell-admin"></i>
+                        <label for="sell-admin">商城管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="news-admin"></i>
+                        <label for="news-admin">新闻管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="blog-admin"></i>
+                        <label for="blog-admin">博客管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="videos-admin"></i>
+                        <label for="videos-admin">视频管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="note-admin"></i>
+                        <label for="note-admin">笔记管理</label>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-renyuanguanli menu-icon" id="tab-admin"></i>
+                        <label for="tab-admin">标签管理</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <i class="iconfont icon-xiangyoujiantou menu-icon" id="right"></i>
+    </div>
+</div>
+<!-- 核心区 -->
+<div class="core">
+    <!-- 渐变条：只需要预留空间即可，不需要单独分区 -->
+    <!-- 内容区 -->
+    <div class="content">
+        <!-- 命令区 -->
+        <div class="head">
+            <label id="present-data">角色管理</label>
+            <button id="btn-data-create">新 建</button>
+            <button id="btn-data-refresh">刷 新</button>
+        </div>
+        <!-- 数据区 -->
+        <div class="data">
+            <table>
+                <thead id="admin-thead"></thead>
+                <tbody id="admin-tbody"></tbody>
+            </table>
+        </div>
+        <!-- 分页区 -->
+        <div class="page"></div>
+        <!-- 消息区 -->
+        <div class="msg">
+            <i class="iconfont icon-guanbi menu-icon"></i>
+            <p>操作成功！</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- 版权区 -->
+<div class="copr">
+    <p>好好学习，天天向上</p>
+    <p>不忘初心，牢记使命</p>
+</div>
+</body>
+</html>
