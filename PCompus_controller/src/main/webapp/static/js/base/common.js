@@ -76,6 +76,7 @@ $(function () {
         weekDataEchart.resize();
         dayDataEchart.resize();
     })
+    musicPlayer();
 })
 
 
@@ -100,6 +101,7 @@ var CanvasAutoResize = {
 function musicPlayer() {
     //底部显示区域总宽度
     var footerW = $('.myaudio').width();
+    console.log("底部宽度" + footerW);
     //中央显示区域的宽度
     var audioW = $('.myaudio-center').width();
     var curtime = 0;//播放进度

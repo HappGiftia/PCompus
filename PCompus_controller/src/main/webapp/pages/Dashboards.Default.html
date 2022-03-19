@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_ip7u14w8cls.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
-    <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.Default.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
     <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
@@ -31,10 +32,10 @@
                 <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
                 <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">综合</a>
-                    <a class="dropdown-item" href="#">学院</a>
-                    <a class="dropdown-item" href="#">个人</a>
-                    <a class="dropdown-item" href="#">社会</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
                 </div>
             </li>
             <!-- 应用 -->
@@ -42,33 +43,34 @@
                 <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
                 <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">日程提醒</a>
-                    <a class="dropdown-item" href="#">日记</a>
-                    <a class="dropdown-item" href="#">聊天</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
                 </div>
             </li>
             <!-- 页面 -->
             <li class="nav-item collapse navbar-collapse dropdown">
-                <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
-                <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">页面</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">实践</a>
-                    <a class="dropdown-item" href="#">公共聊天室</a>
-                    <a class="dropdown-item" href="#">个人中心</a>
-                    <a class="dropdown-item" href="#">意见反馈</a>
-                </div>
-            </li>
-            <!-- 笔记 -->
-            <li class="nav-item collapse navbar-collapse dropdown">
                 <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
                 <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
-                    分享
+                    页面
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">博客</a>
-                    <a class="dropdown-item" href="#">风景</a>
-                    <a class="dropdown-item" href="#">视频</a>
-                    <a class="dropdown-item" href="#">新闻</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                </div>
+            </li>
+            <!-- 功能-->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
                 </div>
             </li>
         </ul>

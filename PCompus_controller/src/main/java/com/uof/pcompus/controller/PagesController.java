@@ -59,9 +59,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Apps.Contacts")
-    public String Apps_Contacts() {
-        return "Apps.Contacts";
+    @RequestMapping("/Apps.Diary")
+    public String Apps_Diary() {
+        return "Apps.Diary";
     }
 
     /**
@@ -71,9 +71,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Apps.Mailbox")
-    public String Apps_Mailbox() {
-        return "Apps.Mailbox";
+    @RequestMapping("/Blocks.Authentication.ForgotPassword")
+    public String Apps_Authentication_ForgotPassword() {
+        return "Blocks.Authentication.ForgotPassword";
     }
 
     /**
@@ -83,9 +83,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Apps.Tasks")
-    public String Apps_Tasks() {
-        return "Apps.Tasks";
+    @RequestMapping("/Blocks.Authentication.Login")
+    public String Apps_Authentication_Login() {
+        return "Blocks.Authentication.Login";
     }
 
     /**
@@ -95,9 +95,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Cta")
-    public String Blocks_Cta() {
-        return "Blocks.Cta";
+    @RequestMapping("/Blocks.Authentication.Register")
+    public String Blocks_Authentication_Register() {
+        return "Blocks.Authentication.Register";
     }
 
     /**
@@ -107,9 +107,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Details")
-    public String Blocks_Details() {
-        return "Blocks.Details";
+    @RequestMapping("/Blocks.Authentication.ResetPassword")
+    public String Blocks_Authentication_ResetPassword() {
+        return "Blocks.Authentication.ResetPassword";
     }
 
     /**
@@ -119,9 +119,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Gallery")
-    public String Blocks_Gallery() {
-        return "Blocks.Gallery";
+    @RequestMapping("/Blocks.FAQ")
+    public String Blocks_FAQ() {
+        return "Blocks.FAQ";
     }
 
     /**
@@ -131,9 +131,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Images")
-    public String Blocks_Images() {
-        return "Blocks.Images";
+    @RequestMapping("/Blocks.Music.Playing")
+    public String Blocks_Music_Playing() {
+        return "Blocks.Music.Playing";
     }
 
     /**
@@ -143,10 +143,11 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.List")
-    public String Blocks_List() {
-        return "Blocks.List";
+    @RequestMapping("/Blocks.Public.Chatroom")
+    public String Blocks_Public_Chatroom() {
+        return "Blocks.Public.Chatroom";
     }
+
 
     /**
      * @Description:
@@ -155,10 +156,28 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Stats")
-    public String Blocks_Stats() {
-        return "Blocks.Stats";
+    @RequestMapping("/Blocks.User.Info")
+    public String Blocks_User_Info() {
+        return "Blocks.User.Info";
     }
+
+
+    @RequestMapping("/Dashboards.Community")
+    public String Dashboards_Community() {
+        return "Dashboards.Community";
+    }
+
+
+    @RequestMapping("/Dashboards.Compus")
+    public String Dashboards_Compus() {
+        return "Dashboards.Compus";
+    }
+
+    @RequestMapping("/Dashboards.Default.Search")
+    public String Dashboards_Default_Search() {
+        return "Dashboards.Default.Search";
+    }
+
 
     /**
      * @Description:
@@ -167,106 +186,11 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Blocks.Steps")
-    public String Blocks_Steps() {
-        return "Blocks.Steps";
+    @RequestMapping("/Dashboards.Personal.Data")
+    public String Dashboards_Personal_Data() {
+        return "Dashboards.Personal.Data";
     }
 
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Blocks.TabularData")
-    public String Blocks_TabularData() {
-        return "Blocks.TabularData";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Blocks.Thumbnails")
-    public String Blocks_Thumbnails() {
-        return "Blocks.Thumbnails";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Dashboards.Analytic")
-    public String Dashboards_Analytic() {
-        return "Dashboards.Analytic";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Dashboards.Visual")
-    public String Dashboards_Visual() {
-        return "Dashboards.Visual";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Authentication.ForgotPassword")
-    public String Pages_Authentication_ForgotPassword() {
-        return "Pages.Authentication.ForgotPassword";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Authentication.Login")
-    public String Pages_Authentication_Login() {
-        return "Pages.Authentication.Login";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Authentication.Register")
-    public String Pages_Authentication_Register() {
-        return "Pages.Authentication.Register";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Authentication.ResetPassword")
-    public String StringPages_Authentication_ResetPassword() {
-        return "Pages.Authentication.ResetPassword";
-    }
 
     /**
      * @Description:
@@ -299,9 +223,22 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.Blog.Home")
-    public String Pages_Blog_Home() {
-        return "Pages.Blog.Home";
+    @RequestMapping("/Pages.Blog.Write")
+    public String Pages_Blog_Write() {
+        return "Pages.Blog.Write";
+    }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Pages.Picture.Grid")
+    public String Pages_Picture_Grid() {
+        return "Pages.Picture.Grid";
     }
 
     /**
@@ -311,9 +248,9 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.Blog.List")
-    public String Pages_Blog_List() {
-        return "Pages.Blog.List";
+    @RequestMapping("/Pages.Picture.Detail")
+    public String Pages_Picture_Detail() {
+        return "Pages.Picture.Detail";
     }
 
     /**
@@ -323,9 +260,35 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.Miscellaneous.ComingSoon")
-    public String Pages_Miscellaneous_ComingSoon() {
-        return "Pages.Miscellaneous.ComingSoon";
+    @RequestMapping("/Pages.Picture.Upload")
+    public String Pages_Picture_Upload() {
+        return "Pages.Picture.Upload";
+    }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Pages.News.List")
+    public String Pages_News_List() {
+        return "Pages.News.List";
+    }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Pages.News.Detail")
+    public String Pages_News_Detail() {
+        return "Pages.News.Detail";
     }
 
     /**
@@ -335,9 +298,35 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.Miscellaneous.Empty")
-    public String Pages_Miscellaneous_Empty() {
-        return "Pages.Miscellaneous.Empty";
+    @RequestMapping("/Pages.Videos.Detail")
+    public String Pages_Videos_Detail() {
+        return "Pages.Videos.Detail";
+    }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Pages.Videos.Grid")
+    public String Pages_Videos_Grid() {
+        return "Pages.Videos.Grid";
+    }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Pages.Practice.Detail")
+    public String Pages_Practice_Detail() {
+        return "Pages.Practice.Detail";
     }
 
     /**
@@ -347,116 +336,8 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.Miscellaneous.Error")
-    public String Pages_Miscellaneous_Error() {
-        return "Pages.Miscellaneous.Error";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Miscellaneous.Faq")
-    public String Pages_Miscellaneous_Faq() {
-        return "Pages.Miscellaneous.Faq";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Miscellaneous.KnowledgeBase")
-    public String Pages_Miscellaneous_KnowledgeBase() {
-        return "Pages.Miscellaneous.KnowledgeBase";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Miscellaneous.Pricing")
-    public String Pages_Miscellaneous_Pricing() {
-        return "Pages.Miscellaneous.Pricing";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Miscellaneous.Mailing")
-    public String Pages_Miscellaneous_Mailing() {
-        return "Pages.Miscellaneous.Mailing";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Miscellaneous.Search")
-    public String Pages_Miscellaneous_Search() {
-        return "Pages.Miscellaneous.Search";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Portfolio.Detail")
-    public String Pages_Portfolio_Detail() {
-        return "Pages.Portfolio.Detail";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Portfolio.Home")
-    public String Pages_Portfolio_Home() {
-        return "Pages.Portfolio.Home";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Profile.Settings")
-    public String Pages_Profile_Settings() {
-        return "Pages.Profile.Settings";
-    }
-
-    /**
-     * @Description:
-     * @Param: []
-     * @return: java.lang.String
-     * @Author: Happ
-     * @Date: 2021/11/15
-     */
-    @RequestMapping("/Pages.Profile.Standard")
-    public String Pages_Profile_Standard() {
-        return "Pages.Profile.Standard";
+    @RequestMapping("/Pages.Practice.Grid")
+    public String Pages_Practice_Grid() {
+        return "Pages.Practice.Grid";
     }
 }

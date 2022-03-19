@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_ip7u14w8cls.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.Default.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+</head>
+<body>
+<div class="head">
+    <nav class="navbar navbar-expand-lg">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <!-- 首页 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+                </div>
+            </li>
+            <!-- 应用 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                </div>
+            </li>
+            <!-- 页面 -->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                    页面
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                </div>
+            </li>
+            <!-- 功能-->
+            <li class="nav-item collapse navbar-collapse dropdown">
+                <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                    <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                </div>
+            </li>
+        </ul>
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
+
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <!-- 用户头像 -->
+        <div class="nav-item login-user" id="login-user">
+            <img
+                    src="/PCompus/static/img/profile/profile-5.jpg"
+                    alt="用户头像"
+                    id="login-user-image"
+                    class="login-user-image"
+            />
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="container" style="height: 50px;font-size:22px">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">新闻详情</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!--头部结束-->
+
+<div class="main container main-container">
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <div class="col-md-8">
+                    <h3 class="news-title">
+                        “土坑酸菜”留下的“坑”，该怎么填？ </h3>
+                    <!--搜索引擎，h1爬取权重较高-->
+                    <div class="new-info">
+                        10w阅读 . 2分钟之前发布
+                        <div class="label label-default">教育</div>
+                        <div class="label label-default">情感</div>
+                        <div class="label label-default">社会</div>
+                    </div>
+                    <div class="news-content">
+                        <blockquote>
+                            <p>文章概括：</p>
+                            <p>传统“土法”制作的光环，遮蔽不了卫生安全的瑕疵和隐患。</p>
+                        </blockquote>
+                        　 　
+                        <div class="text-indent-2em">
+                            “3·15”晚会曝光的湖南华容县“土坑酸菜”， 已导致当地4名干部被追责。但“土坑酸菜”留下的“坑”该如何“填”，仍值得进一步讨论、反思。
+                            湖南插旗菜业的“老坛酸菜”实则“土坑酸菜”。面对公众对食品安全的质疑，涉事企业工作人员感到“委屈”，称用脚踩方式“池腌”酸菜是一个正常步骤，几十年来都是这么做的。央视曝光的内容，只是腌制的部分，卖到市场上之前，会清洗得特别干净。
+                            当舆论吐槽“土坑酸菜”时，网上也出现另一种声音。有网友说自家酸菜也是用脚踩的，还有人列举制作葡萄酒的葡萄同样是用脚踩。这说明，公众当下对于农产品加工采用哪种方法仍然存在一定分歧，对传统食品工艺和卫生要求也存在一定认知盲区。
+                            借“土坑酸菜”曝光，专业人士不妨及时科普“土坑酸菜”可能存在的亚硝酸盐超标、防腐剂超标等多种安全隐患；以及农产品加工是继续遵循古法还是选择现代化生产，又有何优劣。
+                            事实上，所谓的“不干不净不生毛病”“盐消百毒”，既不符合《食品安全法》对食品生产过程的卫生要求，也跟不上时代的需要，这些“陈年老规”已经不合时宜。这点应该达成共识。在此基础之上，如何对传统工艺进行转化和更新，是当下尤其需要关注的事。
+                            当然，农产品标准化和传统制作工艺并不矛盾。“现代化的生产”，其实是对前人技艺不断改进的结果。而食品的安全卫生，从不分是“土法”、传统还是现代，这个卫生标准是普遍适用、一以贯之的，并不因是“土法”，就有所放宽。对于“土法制菜”，最需要的是尽快向现代生产工艺转型。
+                        </div>
+                        <img src="appImage/003.jpg"/>
+                        <div class="text-indent-2em">
+                            此外，“不止我们插旗菜业，整个行业都遭遇‘灭顶之灾’”，涉事企业员工接受采访时的这番说辞也失之偏颇。
+                            这次央视曝光的只是个别不法企业，并不代表整个行业、所有企业都不符合安全卫生规范。实际上，我国一些地区早已认识到土法制作的局限和危害，严禁用大坑腌制酸菜，将农产品标准化生产提上了日程。
+                            比如，2019年辽宁省政府连续下发了《关于在全省范围内禁止使用大坑腌制酸菜的通知》《关于再次明确在全省范围内禁止使用大坑腌菜的通知》等文件。当地有关部门在全省各地开展了大坑腌菜集中整治行动的同时，加快推进腌菜工业园区建设，实现酸菜产业园区化、规模化、产业化、标准化生产。
+                            事实上，由于成本低、易操作，“大坑腌菜”在东北等地曾是酸菜腌制的主要手段。但食物的生产和加工从来不是一成不变的。每一种食物的配方与工艺，都在不断地改进和更新。 　
+                        </div>
+                        <div class="text-indent-2em">
+                            在如今物质丰盛的年代，人们对于食物的要求，早已不是简单的填饱肚子，还要吃得绿色、吃得健康。而利用现代科技手段，提升改良传统食品加工工艺并不困难，尤其是民间广为盛行的各种食品、特产的加工制作。
+                        </div>
+                        <div class="text-indent-2em">
+                            伴随人们对食品安全卫生重视程度不断提高，食品加工企业要想取信消费者，有必要积极探索传统食品加工业更加科学、卫生的手段。当下食品科学工业已比较发达，对“古法”“土法”进行改进，已经没有太多技术上的障碍。
+                            据报道，被曝光的湖南插旗菜业有700多名员工，芥菜加工也是整个华容县的支柱产业。当地不妨以此为契机，加大投入，推动整个产业升级改造，这才是关乎民生的大事。
+                        </div>
+                        <div class="text-indent-2em">
+                            当然，实现农产品标准化并非一蹴而就，而标准化对产业带来的积极效应，可能需要一定的时间才能显现。但未来食品加工的趋势，必定是往标准化、现代化的方向发展。
+                            对于传统制作工艺，各地也该抱着取其精华、去其糟粕的态度，取长补短。企业只有不断改进技术，通过适当改良达到食品加工的标准化生产，才能赢得市场和未来。
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="side-bar-card">
+                        <div class="card-title">相关话题</div>
+                        <div class="card-body">
+                            <div class="list">
+                                <div class="item clearfix">
+                                    <div class="col-xs-5 clear-image-padding">
+                                        <img src="https://dummyimage.com/600x400/666/ccc"/>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="title">习近平同美国总统拜登视频通话</div>
+                                        <div class="dest">300w阅读 100w评论</div>
+                                    </div>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-xs-5 clear-image-padding">
+                                        <img src="https://dummyimage.com/600x400/666/ccc"/>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="title">普京讲话画面突然被切换，有西方媒体开始揣测“不寻常”，克...</div>
+                                        <div class="dest">300w阅读 100w评论</div>
+                                    </div>
+                                </div>
+                                <div class="item clearfix">
+                                    <div class="col-xs-5 clear-image-padding">
+                                        <img src="https://dummyimage.com/600x400/666/ccc"/>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="title">俄罗斯“好友”，被俄罗斯制裁了</div>
+                                        <div class="dest">300w阅读 100w评论</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-bar-card">
+                        <div class="card-title">热门新闻</div>
+                        <div class="card-body">
+                            <div class="list">
+                                <div class="item">
+                                    <div class="title">杭式葱油拌面里加了这样小菜，面条的口感顿...</div>
+                                    <div class="desc">300w点赞，20w评论</div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">睡觉，是检验婚姻的最好标准</div>
+                                    <div class="desc">300w点赞，20w评论</div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">早送孩子去学校，这将是你对孩子最大的帮助</div>
+                                    <div class="desc">300w点赞，20w评论</div>
+                                </div>
+                                <div class="item">
+                                    <div class="title">同龄孩子差别怎么这么大？幼儿园老师为你揭...</div>
+                                    <div class="desc">300w点赞，20w评论</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!--底部开始-->
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+    <script src="/PCompus/static/js/vendor/vue.js"></script>
+    <script src="/PCompus/static/js/base/style.js"></script>
+    <script src="/PCompus/static/js/base/common.js"></script>
+</div>
+</body>
+</html>
