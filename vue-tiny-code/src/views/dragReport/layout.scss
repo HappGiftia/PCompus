@@ -1,0 +1,90 @@
+.report-container {
+  .report-title {
+    width: 1000px;
+    height: 80px;
+    font-size: 3rem;
+    .report-title-input {
+      width: 500px;
+    }
+  }
+
+  .report {
+    width: 1200px;
+    .layout-row {
+      margin: 2.5rem 0;
+      .row-controller-bar {
+        background-color: #cccccc;
+        color: black;
+        justify-content: space-between;
+        height: 28px;
+        line-height: 28px;
+        top: -28px;
+        .bar-info-box {
+          max-width: 40%;
+          .bar-layout-info {
+            margin: 0 0.5rem;
+          }
+        }
+        .bar-btn-box {
+          .align-type-item {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+
+      .layout-col-box {
+        background-size: 100%;
+        background-position: center center;
+        border: 1px dashed #cccccc;
+        margin: 0 0.1rem;
+        .col-controller-bar {
+          height: 20px;
+          line-height: 20px;
+          background-color: #cccccc;
+          color: black;
+          top: 0;
+          justify-content: space-between;
+          .bar-title-box {
+            margin: 0 0.5rem;
+            max-width: 35%;
+          }
+        }
+      }
+    }
+  }
+
+  .drag-report-add-box {
+    top: 0;
+    height: 800px;
+    width: 450px;
+    overflow: hidden;
+    background-color: white;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-flow: column;
+    box-shadow: 0px 0px 5px #9e9e9e;
+    .title-box {
+      font-size: 1.8rem;
+    }
+  }
+
+  .ps-icon-btn {
+    transition: top 0.5s;
+    font-size: 2.5rem;
+    &.add-row-icon {
+      left: 10%;
+      &:hover {
+        animation: transIcon 1s infinite;
+      }
+    }
+    &.add-col-icon {
+      right: 10%;
+      &:hover {
+        animation: transIconReversal 1s infinite;
+      }
+    }
+    &.preview-icon {
+      right: 5%;
+    }
+  }
+}

@@ -71,12 +71,6 @@
     background-color: firebrick;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-    /*以区域块的形式显示，最大宽度不能超过父级元素的大小*/
-    border-radius: 7px;
-}
 
 /*左侧导航栏*/
 

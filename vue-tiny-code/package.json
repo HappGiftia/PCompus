@@ -1,0 +1,37 @@
+{
+  "name": "vue-tiny-code",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "start": "npm run serve"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "echarts": "^4.1.0",
+    "element-ui": "^2.5.4",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.5.3",
+    "lodash": "^4.17.11",
+    "mockjs": "^1.0.1-beta3",
+    "moment": "^2.24.0",
+    "node-sass": "^7.0.1",
+    "ramda": "^0.26.1",
+    "resize-observer-polyfill": "^1.5.0",
+    "vue": "^2.5.17",
+    "vue-loader": "^17.0.0",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
+  }
+}

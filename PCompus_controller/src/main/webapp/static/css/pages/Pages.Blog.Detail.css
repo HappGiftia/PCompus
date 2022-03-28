@@ -1,0 +1,29 @@
+.alert {
+    zoom: 1.5;
+}
+
+.contentDiv {
+    background: white;
+    padding: 70px;
+    border-radius: 12px;
+}
+
+.card {
+    border: unset;
+}
+
+.blog-content {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: justify;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.card-body {
+    padding: 1.25rem 1.25rem 0 1.25rem;
+}
+
+.card-body p {
+    margin: 0 !important;
+}

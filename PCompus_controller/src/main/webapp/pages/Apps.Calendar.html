@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <!--    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.css" rel="stylesheet">
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet"
+          href="https://formden.com/static/assets/demos/bootstrap-iso/bootstrap-iso/bootstrap-iso.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/jquery.bootstrap.year.calendar.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/OverlayScrollbars.min.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/select2.min.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/select2-bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/fullcalendar.min.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap-datepicker3.standalone.min.css"/>
+    <link rel="stylesheet" href="/PCompus/static/font/CS-Interface/style.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Apps.Calendar.css">
+
+</head>
+
+<body>
+<div class="head">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <!-- 首页 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+                    </div>
+                </li>
+                <!-- 应用 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
+                    </div>
+                </li>
+                <!-- 页面 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                        页面
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
+                    </div>
+                </li>
+                <!-- 功能-->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Links -->
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
+
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <div class="nav-item collapse navbar-collapse login-user">
+            <ul class="navbar-nav mr-auto">
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" style="height: 60px"> <img alt=""
+                                                                                          class="img-circle"
+                                                                                          src="/PCompus/static/img/profile/profile-5.jpg"
+                                                                                          width="38px"
+                                                                                          height="38px"/> <span
+                        style="color: #000000; font-size: 15px">登录用户
+									</span>
+                </a>
+                    <div class="dropdown-menu pull-right"
+                         style="background: #FFFFFF;border-radius: 12px; width: 320px; overflow: hidden">
+                        <div
+                                style=" border-bottom: 2px solid #eeeeee">
+
+                            <div
+                                    style="color: #323534; text-align: center; line-height: 36px; font-size: 15px"><img
+                                    class="img-circle"
+                                    src="/PCompus/static/img/profile/profile-5.jpg"
+                                    style="margin: 16px 0 17px 0;width: 38px; height: 38px;" alt=""/>
+                                <span>登录用户</span>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/UserInfo')">
+                                <i class="iconfont icon-wode-user"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    个人中心</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-zhanghaoguanli"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号管理</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-mimazhaohuibaocuo "
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号找回</p>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-touxiang"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    修改头像</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont iconfont icon-xiaoxitishi"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    消息</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-bangzhu"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    帮助中心</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row"
+                             style="margin-top: 20px; margin-left: 33%; cursor: pointer;"
+                             id="logout"
+                             onclick="location.href = '${pageContext.request.contextPath}/Logout';">
+                            <button type="button" class="btn btn-outline-primary"
+                                    style="width: 100px;height: 30px;line-height: 23px;">
+                                <i class="iconfont icon-tuichu" style="line-height: unset"></i> 退出登录
+                            </button>
+                        </div>
+                        .
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="container" style="height: 50px;font-size:22px">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">数据</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!--头部结束-->
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="dashboards-practice-ul" role="tablist">
+                <li role="tab" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校内
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-practice">刷新</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="panel-1">
+                        <h2 style="padding: 1em 0; text-align: center">Basic Example</h2>
+                        <div class="calendar"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <div class="page-title-container">
+            <div class="row g-0">
+                <div class="col-auto mb-2 mb-md-0 me-auto">
+                    <div class="w-auto sw-md-30">
+                        <h1 class="mb-0 pb-0 display-4" id="title">Calendar</h1>
+                        <nav
+                                class="breadcrumb-container d-inline-block"
+                                aria-label="breadcrumb"
+                        >
+                            <ul class="breadcrumb pt-0">
+                                <li class="breadcrumb-item">
+                                    <a href="Dashboards.Default.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="Apps.html">Apps</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="w-100 d-md-none"></div>
+                <div class="col-auto d-flex align-items-start justify-content-end">
+                    <button
+                            type="button"
+                            class="btn btn-outline-primary btn-icon btn-icon-only ms-1"
+                            id="goPrev"
+                    >
+                        <i data-cs-icon="chevron-left"></i>
+                    </button>
+                    <button
+                            type="button"
+                            class="btn btn-outline-primary btn-icon btn-icon-only ms-1"
+                            id="goNext"
+                    >
+                        <i data-cs-icon="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="col col-md-auto d-flex align-items-start justify-content-end">
+                    <button
+                            type="button"
+                            class="btn btn-outline-primary btn-icon btn-icon-start ms-1 w-100 w-md-auto"
+                            id="addNewEvent"
+                    >
+                        <i data-cs-icon="plus"></i>
+                        <span>Add Event</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <h2 class="small-title" id="calendarTitle">Title</h2>
+            <button
+                    class="btn btn-sm btn-icon btn-icon-only btn-foreground shadow align-top mt-n2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+            >
+                <i data-cs-icon="more-horizontal" data-cs-size="15"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end shadow">
+                <a class="dropdown-item" href="#" id="monthView">Month</a>
+                <a class="dropdown-item" href="#" id="weekView">Week</a>
+                <a class="dropdown-item" href="#" id="dayView">Day</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" id="goToday">Today</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div id="calendar"></div>
+            </div>
+        </div>
+        <div>
+            <div
+                    class="modal modal-right fade"
+                    id="newEventModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-hidden="true"
+            >
+                <div class="modal-dialog" id="addModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle">Add Event</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body d-flex flex-column">
+                            <div class="mb-3 top-label">
+                                <input class="form-control" id="eventTitle"/>
+                                <span>TITLE</span>
+                            </div>
+                            <div class="mb-3 top-label">
+                                <select id="eventCategory">
+                                    <option label="&nbsp;"></option>
+                                    <option data-class="border-primary" value="Work">
+                                        Work
+                                    </option>
+                                    <option data-class="border-tertiary" value="Personal">
+                                        Personal
+                                    </option>
+                                    <option data-class="border-secondary" value="Education">
+                                        Education
+                                    </option>
+                                </select>
+                                <span>CATEGORY</span>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col pe-2">
+                                    <div class="mb-3 top-label">
+                                        <input
+                                                type="text"
+                                                data-provide="datepicker"
+                                                class="form-control"
+                                                data-date-autoclose="true"
+                                                id="eventStartDate"
+                                        />
+                                        <span>START DATE</span>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div
+                                            class="mb-3 top-label custom-control-container time-picker-container"
+                                    >
+                                        <input
+                                                class="form-control time-picker"
+                                                id="eventStartTime"
+                                        />
+                                        <span>START TIME</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col pe-2">
+                                    <div class="mb-3 top-label">
+                                        <input
+                                                type="text"
+                                                data-provide="datepicker"
+                                                class="form-control"
+                                                data-date-autoclose="true"
+                                                id="eventEndDate"
+                                        />
+                                        <span>END DATE</span>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div
+                                            class="mb-3 top-label custom-control-container time-picker-container"
+                                    >
+                                        <input
+                                                class="form-control time-picker"
+                                                id="eventEndTime"
+                                        />
+                                        <span>END TIME</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button
+                                    class="btn btn-icon btn-icon-only btn-outline-primary"
+                                    type="button"
+                                    data-delay='{"show":"500", "hide":"0"}'
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title="Delete"
+                                    id="deleteEvent"
+                            >
+                                <i data-cs-icon="bin"></i>
+                            </button>
+                            <button
+                                    class="btn btn-icon btn-icon-end btn-primary"
+                                    type="button"
+                                    id="saveEvent"
+                            >
+                                <span>Save</span>
+                                <i data-cs-icon="check"></i>
+                            </button>
+                            <button
+                                    class="btn btn-icon btn-icon-start btn-primary"
+                                    type="button"
+                                    id="addEvent"
+                            >
+                                <i data-cs-icon="plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div onsubmit="false">
+            <div
+                    class="modal fade modal-close-out"
+                    id="deleteConfirmModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="deleteConfirmModal"
+                    aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered" id="deleteModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="verticallyCenteredLabel">
+                                Are you sure?
+                            </h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="deleteConfirmDetail" class="fw-bold"></span>
+                            <span>will be deleted. Are you sure?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    data-bs-dismiss="modal"
+                            >
+                                No
+                            </button>
+                            <button
+                                    type="button"
+                                    id="deleteConfirmButton"
+                                    class="btn btn-outline-primary"
+                            >
+                                Yes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--底部开始-->
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+</div>
+<script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>');
+    $("#addNewEvent").on("click", function () {
+        $("body").addClass("modal-open")
+    })
+</script>
+<script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/PCompus/static/js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="/PCompus/static/js/vendor/bootstrap/jquery.bootstrap.year.calendar.min.js"></script>
+
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+
+<script src="/PCompus/static/js/vendor/OverlayScrollbars.min.js"></script>
+<script src="/PCompus/static/js/vendor/select2.full.min.js"></script>
+<script src="/PCompus/static/js/vendor/main.min.js"></script>
+<script src="/PCompus/static/js/vendor/moment-with-locales.min.js"></script>
+<script src="/PCompus/static/js/vendor/bootstrap/datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/PCompus/static/js/vendor/timepicker.js"></script>
+<script src="/PCompus/static/font/CS-Line/csicons.min.js"></script>
+<script src="/PCompus/static/js/base/helpers.js"></script>
+<script src="/PCompus/static/js/base/globals.js"></script>
+
+<script src="/PCompus/static/js/base/settings.js"></script>
+<script src="/PCompus/static/js/base/init.js"></script>
+<script src="/PCompus/static/js/apps/calendar.js"></script>
+<script src="/PCompus/static/js/base/style.js"></script>
+<script src="/PCompus/static/js/base/common.js"></script>
+
+<script src="/PCompus/static/js/base/scripts.js"></script>
+<script src="/PCompus/static/js/pages/Apps.Calendar.js"></script>
+
+</body>
+</html>

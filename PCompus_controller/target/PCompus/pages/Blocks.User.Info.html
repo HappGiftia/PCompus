@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Blocks.User.Info.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+</head>
+<body>
+
+<div class="head">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <!-- 首页 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+
+                    </div>
+                </li>
+                <!-- 应用 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
+                    </div>
+                </li>
+                <!-- 页面 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                        页面
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
+
+                    </div>
+                </li>
+                <!-- 功能-->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Links -->
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
+
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <div class="nav-item collapse navbar-collapse login-user">
+            <ul class="navbar-nav mr-auto">
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" style="height: 60px"> <img alt=""
+                                                                                          class="img-circle"
+                                                                                          src="/PCompus/static/img/profile/profile-5.jpg"
+                                                                                          width="38px"
+                                                                                          height="38px"/> <span
+                        style="color: #000000; font-size: 15px">登录用户
+									</span>
+                </a>
+                    <div class="dropdown-menu pull-right"
+                         style="background: #FFFFFF;border-radius: 12px; width: 320px; overflow: hidden">
+                        <div
+                                style=" border-bottom: 2px solid #eeeeee">
+
+                            <div
+                                    style="color: #323534; text-align: center; line-height: 36px; font-size: 15px"><img
+                                    class="img-circle"
+                                    src="/PCompus/static/img/profile/profile-5.jpg"
+                                    style="margin: 16px 0 17px 0;width: 38px; height: 38px;" alt=""/>
+                                <span>登录用户</span>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/UserInfo')">
+                                <i class="iconfont icon-wode-user"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    个人中心</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-zhanghaoguanli"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号管理</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-mimazhaohuibaocuo "
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号找回</p>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-touxiang"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    修改头像</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont iconfont icon-xiaoxitishi"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    消息</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-bangzhu"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    帮助中心</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row"
+                             style="margin-top: 20px; margin-left: 33%; cursor: pointer;"
+                             id="logout"
+                             onclick="location.href = '${pageContext.request.contextPath}/Logout';">
+                            <button type="button" class="btn btn-outline-primary"
+                                    style="width: 100px;height: 30px;line-height: 23px;">
+                                <i class="iconfont icon-tuichu" style="line-height: unset"></i> 退出登录
+                            </button>
+                        </div>
+                        .
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="container" style="height: 50px;font-size:22px">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">数据</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
+
+<!--头部结束-->
+<div class="sidebar">
+    <div class="tab" id="cate0">
+        <i class="reorder" style="margin-left: 12%;"></i>登录用户
+    </div>
+    <div class="design" id="cate1">
+        <div class="navto-nav">
+            <a href="#info"><i class="imooc-icon1"></i> 个人信息</a>
+        </div>
+    </div>
+    <div class="design" id="cate2">
+        <div class="navto-nav">
+            <a href="#favorites"><i class="imooc-icon2"></i> 我的收藏</a>
+        </div>
+    </div>
+    <div class="design" id="cate3">
+        <div class="navto-nav">
+            <a href="#love_place"> <i class="imooc-icon3"></i> 一抹阳光
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate4">
+        <div class="navto-nav">
+            <a href="#previously-ways"> <i class="imooc-icon4"></i> 走过的路
+            </a>
+
+        </div>
+    </div>
+    <div class="design" id="cate5">
+        <div class="navto-nav">
+            <a href="#Memories-images"> <i class="imooc-icon5"></i> 回忆相册
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate6">
+        <div class="navto-nav">
+            <a href="#essay"> <i class="imooc-icon6"></i> 我的文章
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate7">
+        <div class="navto-nav">
+            <a href="#essay-comment"> <i class="imooc-icon7"></i> 我的评论
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate8">
+        <div class="navto-nav">
+            <a href="#user-help"> <i class="imooc-icon8"></i> 账号帮助
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate9">
+        <div class="navto-nav">
+            <a href="#discuss"> <i class="imooc-icon9"></i> 网站讨论
+            </a>
+        </div>
+    </div>
+    <div class="design" id="cate10">
+        <div class="navto-nav" style="border-radius: 0px 0px 12px 12px;">
+            <a href="#about"> <i class="imooc-icon10"></i> 关于
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="info" role="tablist">
+                <li role="tab" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        登录用户
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="panel-info">
+                        <div>
+                            <ul>
+                                <li class="my_fav_list_li">
+                                    <p>
+                                        <span style="font-size: 20px; color: black">你的名字：</span> <span
+                                            style="font-size: 1.8rem">登录用户 </span>
+                                    </p>
+                                </li>
+                                <li class="my_fav_list_li">
+                                    <p>
+                                        <span style="font-size: 20px; color: black">账号ID：</span> <span
+                                            style="font-size: 1.8rem">${sessionScope.user_id} </span>
+                                    </p>
+                                </li>
+                                <li class="my_fav_list_li">
+                                    <p>
+                                        <span style="font-size: 20px; color: black">性别：</span> <span
+                                            style="font-size: 1.8rem">${sessionScope.user_sex} </span>
+                                </li>
+                                <li class="my_fav_list_li">
+                                    <p>
+                                        <span style="font-size: 20px; color: black">邮箱：</span> <span
+                                            style="font-size: 1.8rem">${sessionScope.user_E_Mail}</span>
+                                    </p>
+                                </li>
+                                <li class="my_fav_list_li">
+                                    <p>
+                                        <span style="font-size: 20px; color: black">最近登录：</span> <span
+                                            style="font-size: 1.8rem">${sessionScope.user_lastLogin}</span>
+                                    </p>
+                                </li>
+                                <li class="my_fav_list_li">
+                                    <p>
+						<span style="font-size: 1.8rem"><a data-toggle="modal"
+                                                           data-target="#mymodal" class="user_info"
+                                                           data-toggle="dropdown"
+                                                           style="height: 60px; cursor: pointer;"> 修改 </a></span>
+                                    </p>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="modal" id="mymodal">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle"
+                                            style="font-size: 20px">修改</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="${pageContext.request.contextPath}/Modify"
+                                          method="POST">
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <label>新用户名</label> <input type="text"
+                                                                           class="form-control"
+                                                                           id="modify-username"
+                                                                           aria-describedby="modify-UserName"
+                                                                           name="modifyName"
+                                                                           placeholder="请输入要修改的用户名">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>新密码</label> <input type="password"
+                                                                          class="form-control" id="modify-Password"
+                                                                          name="modifyPassword"
+                                                                          placeholder="请输入要修改的密码">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>新性别</label> <select class="modify"
+                                                                           id="Departure" style="display: block;"
+                                                                           name="modifySex">
+                                                <option value="男">男</option>
+                                                <option value="女">女</option>
+                                                <option value="隐藏">隐藏</option>
+                                            </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="modify-email">新邮箱</label> <input type="email"
+                                                                                             class="form-control"
+                                                                                             id="modify-email"
+                                                                                             name="modifyEmail"
+                                                                                             placeholder="请输入要修改的邮箱">
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer" style="align-items: baseline;">
+
+                                            <button type="button" class="btn btn-primary"
+                                                    data-dismiss="modal">取消
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">提交修改</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="favorites-article">
+                        <div class="fav_num">
+                            共<span>${favoriteArticls.size()}</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">我的收藏</h3>
+
+                        </div>
+                        <div class="my_fav_con">
+                            <div class="my_fav_list">
+                                <ul class="my_fav_list_ul">
+                                    <li class="my_fav_list_li"><a class="my_fav_list_a"
+                                                                  href="" target="_blank">
+                                        ${favoriteArticls.getArticleTitle()}
+                                    </a> <label class="my_fav_list_label"> <span>2019-04-08</span>
+                                        <a class="cancel_fav"><em>取消</em></a>
+                                    </label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="favorites-places">
+                        <div class="fav_num">
+                            共<span>${favoritesPlaces.size()}</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">一抹阳光</h3>
+                        </div>
+                        <div class="my_fav_con">
+                            <div class="my_fav_list">
+                                <ul class="my_fav_list_ul">
+                                    <li class="my_fav_list_li"><a class="my_fav_list_a"
+                                                                  href="" target="_blank"> ${favoritePlaces}</a> <img
+                                            alt="test"
+                                            src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"
+                                            style="width: 100px; height: auto; border-radius: 12px;"><label
+                                            class="my_fav_list_label"> <span>2019-04-08</span> <a
+                                            class="cancel_fav"><em>取消</em></a>
+                                    </label></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="page-box"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="previously-ways">
+
+                        <div class="fav_num">
+                            共<span>${sessionScope.userRoutes.size()}</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">走过的路</h3>
+                        </div>
+                        <table class="pure-table">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>出发地</th>
+                                <th>目的地</th>
+                                <th>出发时间</th>
+                                <th>回程时间</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="pure-table-odd">
+                                <td>${s.index+1}</td>
+                                <td>${userRoutes.getDestination()}</td>
+                                <td>${userRoutes.getDeparture()}</td>
+                                <td>${userRoutes.getDestinationTime()}</td>
+                                <td>${userRoutes.getDepartureTime()}</td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="Memories-image">
+
+                        <div class="fav_num">
+                            共<span>5</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">回忆相册</h3>
+                        </div>
+                        <div class="my_fav_con">
+                            <div class="my_fav_list">
+                                <ul class="my_fav_list_ul">
+                                    <li class="my_fav_list_li"><label class="memories-time">
+                                        <span>2019-04-08</span> <a class="cancel_fav"></a>
+                                    </label>
+                                        <div class="memories-images">
+                                            <img class="pic pic0" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic1" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic2" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic3" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic4" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic5" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic6" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic7" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                        </div>
+                                    </li>
+                                    <li class="my_fav_list_li"><label class="memories-time">
+                                        <span>2019-04-08</span> <a class="cancel_fav"></a>
+                                    </label>
+                                        <div class="memories-images">
+                                            <img class="pic pic0" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic1" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic2" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic3" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic4" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic5" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic6" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                            <img class="pic pic7" src="/PCompus/static/img/product/horizontal/horizontal-3.jpg"/>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="essay">
+                        <div class="fav_num">
+                            共<span>${userArticles.size()}</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">我的文章</h3>
+                        </div>
+                        <div class="my_fav_con">
+                            <div class="my_fav_list">
+                                <ul class="my_fav_list_ul">
+                                    <li class="my_fav_list_li" id=""><a class="my_fav_list_a"
+                                                                        href="" target="_blank"> ${createArticles.getArticleTitle()}
+                                    </a> <label class="my_fav_list_label"> <span>2019-04-08</span>
+                                        <a class="cancel_fav"><em>删除</em></a>
+                                    </label></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="essay-comment">
+                        <div class="fav_num">
+                            共<span>${evalutions.size() }</span>条
+                        </div>
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">我的评论</h3>
+                        </div>
+                        <ul class="my_fav_list_ul">
+                            <li class="my_fav_list_li">
+
+                                <div class="media">
+                                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" class="mr-3-img"
+                                         alt="...">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">
+                                            <a class="my_fav_list_a" href="" target="_blank">
+                                                ${evalutionArticleTitles }</a>
+                                        </h5>
+                                        <p>${evalutions.getEvalutionContent() }</p>
+                                    </div>
+                                </div>
+                                <label class="my_fav_list_label"> <span>2019-04-08</span>
+                                    <a class="cancel_fav"><em>删除</em></a>
+                                </label>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="user-help">
+
+
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">账号帮助</h3>
+                        </div>
+
+                        <div class="list-group">
+
+                            <a href="#"
+                               class="list-group-item list-group-item-action list-group-item-primary">用户信息修改</a>
+                            <a href="#"
+                               class="list-group-item list-group-item-action list-group-item-secondary">账号修改</a>
+                            <a href="#"
+                               class="list-group-item list-group-item-action list-group-item-success">账号找回</a>
+                            <a href="#"
+                               class="list-group-item list-group-item-action list-group-item-danger">A
+                                simple danger list group item</a> <a href="#"
+                                                                     class="list-group-item list-group-item-action list-group-item-warning">A
+                            simple warning list group item</a> <a href="#"
+                                                                  class="list-group-item list-group-item-action list-group-item-info">账号举报</a>
+                            <a href="#"
+                               class="list-group-item list-group-item-action list-group-item-dark">网站反馈</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="discuss">
+
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">网站讨论</h3>
+                        </div>
+
+
+                        <div class="media">
+                            <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" class="mr-4-img"
+                                 alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">登录用户</h5>
+                                <p>${fistDiscussions.get(s.index).getDisscuss_content() }</p>
+
+                                <div class="media mt-3">
+                                    <a class="mr-3" href="#"> <img
+                                            src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" class="mr-4-img"
+                                            alt="...">
+                                    </a>
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Media heading</h5>
+                                        <p>${reply.getDisscuss_content() }</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="about">
+
+
+                        <div class="fav_list_title">
+                            <h3 class="fav_list_title_h3">关于我们</h3>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action active"
+                               aria-current="true"> 开发者/宿州学院 </a>
+                            <a href="#" class="list-group-item list-group-item-action">王荆茜</a>
+                            <a href="#" class="list-group-item list-group-item-action">2022毕业设计</a>
+                            <a href="#" class="list-group-item list-group-item-action">@宿州学院 王荆茜</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--底部开始-->
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+</div>
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+<script src="/PCompus/static/js/base/style.js"></script>
+<script src="/PCompus/static/js/base/common.js"></script>
+<script src="/PCompus/static/js/pages/Blocks.User.Info.js"></script>
+</body>
+</html>

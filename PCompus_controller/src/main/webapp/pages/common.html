@@ -50,6 +50,8 @@
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
                     </div>
                 </li>
                 <!-- 页面 -->
@@ -64,6 +66,7 @@
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
                     </div>
                 </li>
                 <!-- 功能-->
@@ -228,6 +231,65 @@
     </div>
 </div>
 <!--头部结束-->
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="dashboards-practice-ul" role="tablist">
+                <li role="tab" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校内
+                    </a>
+                </li>
+                <li role="tab" id="out-school-li">
+                    <a
+                            href="#panel-2"
+                            aria-controls="panel-2"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校外
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-practice">刷新</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="panel-1">
+                        1
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="panel-2">
+                        2
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <!--底部开始-->
 <div class="footer" style="width: 100%">
@@ -272,9 +334,9 @@
                 毕业设计 设计时间：2022-03-09
             </span>
     <br/>
-    <script src="/PCompus/static/js/vendor/vue.js"></script>
-    <script src="/PCompus/static/js/base/style.js"></script>
-    <script src="/PCompus/static/js/base/common.js"></script>
 </div>
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+<script src="/PCompus/static/js/base/style.js"></script>
+<script src="/PCompus/static/js/base/common.js"></script>
 </body>
 </html>

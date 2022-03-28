@@ -2,9 +2,28 @@
     --nav-color-1: skyblue;
 }
 
+body {
+    zoom: 1.25;
+    cursor: url(../img/cursor/cursor.png), default !important;
+}
+
+a,span,button,button:hover,.active,.btn-refresh,.searchtab li,.container canvas,.search-group .search-date,.search-flight .search-input-exchange , a:hover {
+    cursor: url(../img/cursor/cursor2.png), default !important;
+    text-decoration: none;
+}
+
+
 * {
     margin: 0;
     padding: 0;
+
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /*以区域块的形式显示，最大宽度不能超过父级元素的大小*/
+    border-radius: 7px;
 }
 
 h1 {
@@ -49,22 +68,10 @@ img {
     vertical-align: middle;
 }
 
-span {
-    cursor: default;
-}
-
-button {
-    cursor: pointer;
-}
 
 a {
     color: #666;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-    cursor: pointer;
 }
 
 button,
@@ -217,11 +224,9 @@ body {
     height: auto;
 }
 
-
-.row {
-    margin-left: 0;
+.dropdown-menu{
+    margin:0;
 }
-
 .dropdown-menu img {
     display: unset;
 }
@@ -267,7 +272,6 @@ body {
 }
 
 .active {
-    cursor: default;
     font-weight: 600;
 }
 
@@ -461,7 +465,7 @@ body::-webkit-scrollbar {
     background-size: cover;
     overflow-x: hidden;
     -ms-overflow-style: none;
-    background-image: url("../img/bg1.jpeg");
+    /*background-image: url("../img/bg1.jpeg");*/
 }
 
 .full-wh {
@@ -470,6 +474,7 @@ body::-webkit-scrollbar {
     left: 0px;
     bottom: 0px;
     width: 100%;
+    z-index: -1;
 }
 
 .bg-animation {
@@ -957,7 +962,7 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("../img/bg2.jpeg");
+    /*background-image: url("../img/bg2.jpeg");*/
     background-size: cover;
     background-position: 50% 50%;
     transition: all 1.5s linear;
@@ -998,7 +1003,7 @@ body::-webkit-scrollbar {
  */
 .demo:hover .img {
     transition: all 1.5s linear;
-    background-image: url("../img/bg3.jpeg");
+    /*background-image: url("../img/bg3.jpeg");*/
 }
 
 .search-container {
@@ -1028,17 +1033,8 @@ body::-webkit-scrollbar {
     float: left;
     display: inline;
     margin-right: 30px;
-    cursor: pointer
 }
 
-.searchtab i {
-    float: left;
-    margin: 5px 5px 0 0;
-    width: 16px;
-    height: 16px;
-    background-image: url(/images/header-sprites13.png);
-    background-position: -60px -110px !important
-}
 
 .searchtab .tab-selected i {
     background-position: -60px -140px !important
@@ -1095,7 +1091,7 @@ body::-webkit-scrollbar {
     margin-top: 11px;
     width: 24px;
     height: 24px;
-    background-image: url(/images/header-sprites13.png);
+    /*background-image: url(/images/header-sprites13.png);*/
     background-position: 0 -110px !important;
     overflow: hidden;
     vertical-align: top
@@ -1121,7 +1117,6 @@ body::-webkit-scrollbar {
     color: #444;
     line-height: 46px;
     position: relative;
-    cursor: pointer
 }
 
 .search-group .search-date:last-child {
@@ -1151,7 +1146,7 @@ body::-webkit-scrollbar {
     right: 10px;
     width: 16px;
     height: 16px;
-    background-image: url(/images/header-sprites13.png);
+    /*background-image: url(/images/header-sprites13.png);*/
     background-position: 0 -140px !important;
     overflow: hidden
 }
@@ -1199,7 +1194,6 @@ body::-webkit-scrollbar {
     width: 36px;
     padding-top: 5px;
     margin-left: -19px;
-    cursor: pointer
 }
 
 .search-flight .search-date .icon-cal {
@@ -1294,7 +1288,7 @@ table {
     filter: grayscale(80%);
     opacity: 1.0;
     position: fixed;
-    src: url(../icons/top-fill.svg);
+    /*src: url(../icons/top-fill.svg);*/
 }
 
 .form-group label {
@@ -1331,3 +1325,82 @@ table {
 .card-body p {
     overflow: hidden;
 }
+@charset "UTF-8";
+
+
+.con4 {
+    display: inline-block;
+    width: 135px;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 41%;
+    margin-top: 2%;
+}
+
+.con4-2 {
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.con4 .btn {
+    width: 75%;
+    height: 40px;
+    line-height: 2;
+    text-align: center;
+    background: #d8b49c;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 15%;
+}
+
+.con4-2 .btn {
+    width: 75%;
+    height: 40px;
+    line-height: 2;
+    text-align: center;
+    background: #d8b49c;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 15%;
+}
+
+.upload {
+    float: left;
+    position: relative;
+}
+
+.upload_pic {
+    display: block;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    border-radius: 5px;
+}
+
+#cvs-2 {
+    border: 2px solid #000;
+    margin-left: 12%;
+    width: 400px;
+    height: 225px;
+}
+
+#cvs {
+    border: 2px solid #000;
+    margin-left: 5%;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+}
+.memories-images img{
+    display: unset;
+}
+

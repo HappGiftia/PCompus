@@ -1,12 +1,7 @@
 package com.uof.pcompus.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -68,6 +63,20 @@ public class PagesController {
     public String Apps_Diary() {
         return "Apps.Diary";
     }
+
+
+    /**
+     * @Description:
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: Happ
+     * @Date: 2021/11/15
+     */
+    @RequestMapping("/Apps.TimeLine")
+    public String Time_Line() {
+        return "Apps.TimeLine";
+    }
+
 
     /**
      * @Description:
@@ -170,6 +179,17 @@ public class PagesController {
     @RequestMapping("/Dashboards.Community")
     public String Dashboards_Community() {
         return "Dashboards.Community";
+    }
+
+
+    @RequestMapping("/Pages.Products.Detail")
+    public String Pages_Products_Detail() {
+        return "Pages.Products.Detail";
+    }
+
+    @RequestMapping("/Pages.Products.Grid")
+    public String Pages_Products_Grid() {
+        return "Pages.Products.Grid";
     }
 
 
@@ -291,17 +311,10 @@ public class PagesController {
      * @Author: Happ
      * @Date: 2021/11/15
      */
-    @RequestMapping("/Pages.News.Detail")
-    public ModelAndView Pages_News_Detail(String newsId) {
-        System.out.println("前端请求的新闻ID" + newsId);
-        ModelMap model = new ModelMap();
-        if (null != newsId) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("news_id", newsId);
-            model.addAllAttributes(map);
-        }
-        return new ModelAndView("Pages.News.Detail", model);
-    }
+//    @RequestMapping("/Pages.News.Detail")
+//    public String Pages_News_Detail() {
+//        return "Pages.News.Detail";
+//    }
 
     /**
      * @Description:

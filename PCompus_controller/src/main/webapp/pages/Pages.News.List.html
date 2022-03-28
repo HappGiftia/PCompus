@@ -7,13 +7,12 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
     <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
     <link rel="stylesheet" href="/PCompus/static/css/pages/Pages.News.List.css"/>
-    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
     <script src="/PCompus/static/js/vendor/vue.js"></script>
     <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
@@ -53,6 +52,8 @@
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
                     </div>
                 </li>
                 <!-- 页面 -->
@@ -67,6 +68,8 @@
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
                         <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
+
                     </div>
                 </li>
                 <!-- 功能-->
@@ -231,6 +234,16 @@
     </div>
 </div>
 <!--头部结束-->
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
 
 
 <div class="main container main-container">
@@ -248,7 +261,7 @@
                     </div>
                     <div class="card-columns" id="card-box-div"
                          style="margin-top: 20px; margin-left: 5%; width: 90%; column-count: 5; column-gap: 2.25rem;">
-                        <div class="card" id="news-div" @click="jump">
+                        <div class="card news-card" id="news-div">
                             <div style="display: none">{{ newsId }}</div>
                             <img src="/PCompus/static/img/product/large/baguette.jpg" class="card-img-top"
                                  alt="...">
@@ -315,8 +328,8 @@
     <br/>
 
 </div>
+</body>
+<script src="/PCompus/static/js/pages/Pages.News.List.js"></script>
 <script src="/PCompus/static/js/base/style.js"></script>
 <script src="/PCompus/static/js/base/common.js"></script>
-<script src="/PCompus/static/js/pages/Pages.News.List.js"></script>
-</body>
 </html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Pages.Blog.Detail.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+</head>
+<body>
+<div class="head">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <!-- 首页 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+                    </div>
+                </li>
+                <!-- 应用 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
+                    </div>
+                </li>
+                <!-- 页面 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                        页面
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
+
+                    </div>
+                </li>
+                <!-- 功能-->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Links -->
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
+
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <div class="nav-item collapse navbar-collapse login-user">
+            <ul class="navbar-nav mr-auto">
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" style="height: 60px"> <img alt=""
+                                                                                          class="img-circle"
+                                                                                          src="/PCompus/static/img/profile/profile-5.jpg"
+                                                                                          width="38px"
+                                                                                          height="38px"/> <span
+                        style="color: #000000; font-size: 15px">登录用户
+									</span>
+                </a>
+                    <div class="dropdown-menu pull-right"
+                         style="background: #FFFFFF;border-radius: 12px; width: 320px; overflow: hidden">
+                        <div
+                                style=" border-bottom: 2px solid #eeeeee">
+
+                            <div
+                                    style="color: #323534; text-align: center; line-height: 36px; font-size: 15px"><img
+                                    class="img-circle"
+                                    src="/PCompus/static/img/profile/profile-5.jpg"
+                                    style="margin: 16px 0 17px 0;width: 38px; height: 38px;" alt=""/>
+                                <span>登录用户</span>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/UserInfo')">
+                                <i class="iconfont icon-wode-user"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    个人中心</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-zhanghaoguanli"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号管理</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-mimazhaohuibaocuo "
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号找回</p>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-touxiang"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    修改头像</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont iconfont icon-xiaoxitishi"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    消息</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-bangzhu"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    帮助中心</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row"
+                             style="margin-top: 20px; margin-left: 33%; cursor: pointer;"
+                             id="logout"
+                             onclick="location.href = '${pageContext.request.contextPath}/Logout';">
+                            <button type="button" class="btn btn-outline-primary"
+                                    style="width: 100px;height: 30px;line-height: 23px;">
+                                <i class="iconfont icon-tuichu" style="line-height: unset"></i> 退出登录
+                            </button>
+                        </div>
+                        .
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="alert alert-warning" role="alert">
+        无法写作，您没有权限，<a data-toggle="modal" data-target="#mymodal"
+                      class="dropdown-toggle2" data-toggle="dropdown"
+                      style="height: 60px; cursor: pointer;"> 点此登录 </a>
+        <div class="modal" id="mymodal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"
+                            style="font-size: 20px">登录</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="${pageContext.request.contextPath}/Login"
+                          method="POST">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">用户名</label> <input type="text"
+                                                                                   class="form-control"
+                                                                                   id="exampleInputEmail1"
+                                                                                   aria-describedby="loginUserName"
+                                                                                   name="userName"
+                                                                                   placeholder="请输入您的用户名"> <small
+                                    id="emailHelp"
+                                    class="form-text text-muted">欢迎您</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword">Password</label> <input
+                                    type="password" class="form-control" id="InputPassword"
+                                    name="userPassword" placeholder="请输入您的用户密码">
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer" style="align-items: baseline;">
+                            <a href="${pageContext.request.contextPath}/register.jsp"
+                               style="font-size: 10px; margin-right: 50%;">还没账号？注册一个</a>
+                            <button type="button" class="btn btn-primary"
+                                    data-dismiss="modal">取消
+                            </button>
+                            <button type="submit" class="btn btn-primary">登录</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="height: 50px;font-size:22px">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">数据</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!--头部结束-->
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
+
+
+<div class="main container main-container">
+    <span>校内校外实践</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="dashboards-practice-ul" role="tablist">
+                <li role="tab" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        校内
+                    </a>
+                </li>
+
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-practice">刷新</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="panel-1">
+                        <div class="details row">
+                            <!-- 左侧 -->
+                            <div class="col-md-9 card">
+                                <!-- 文章信息头 -->
+                                <div class="card-body">
+                                    <h1 class="display-4">雷神</h1>
+                                    <p class="lead mt-4">2022-03-23</p>
+                                    <hr class="my-4">
+                                    <p>
+                                        <em>雷神的故事</em>
+                                    </p>
+                                </div>
+                                <!--                                        <div class="row mt-4">-->
+                                <!--                                            <div class="col-4">-->
+                                <!--                                                <a class="link"-->
+                                <!--                                                   href="${pageContext.request.contextPath}/Write?articleId=${articleClick.getArticle_id()}">编辑文章</a>-->
+                                <!--                                            </div>-->
+                                <!--                                            <div class="col-4">-->
+                                <!--                                                <a class="text-danger" href="#" data-toggle="modal"-->
+                                <!--                                                   data-target="#exampleModal">删除文章</a>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <hr class="my-4">
+                                <!-- 文章信息体 -->
+                                <div class="card-body blog-content text-indent-2em">
+                                    托尔是奥丁与大地母神盖亚之子（神母弗丽嘉是养母；事后证明大地母神也并非托尔真正的生母），与奥丁所收养的冰霜巨人之子洛基一同长大成人，获得了使用雷神之锤的资格。他是仙宫的守护者和继承人。但他后来逐渐变得傲慢自大，所以被父亲奥丁送到地球以在人类的环境里学习谦逊。
+                                    他以凡人医生唐纳德·布莱克的形象在人间生活，没有身为托尔的记忆。后来他在挪威旅行的一次意外事故中掉落入山洞，在那里拾到一根木头手杖，顿地后手杖变为雷神之锤，托尔亦恢复了身份和能力，从此成为超级英雄，保护地球不受罪犯和邪魔们的侵犯。托尔的宿敌、奥丁收养的冰霜巨人洛基不久后随之出现，从此一直与托尔敌对。洛基一度曾想要挑动绿巨人与托尔敌对，但此事反而促成托尔与钢铁侠、绿巨人、黄蜂女和蚁人组成超级英雄团队复仇者。
+                                    托尔以唐纳德·布莱克的身份作为队医参与复仇者的事务，以掩护自己的秘密，但不久后此事就被钢铁侠察觉，后来托尔本人也向美国队长主动透露了自己的身份。
+
+                                    托尔凡人与超级英雄的双重生活使得他与女护士简·福斯特(Jane
+                                    Foster)的恋情产生不少波折。托尔一度曾想要迎娶简·福斯特，但此事引起奥丁的剧烈反对，导致父子之间发生冲突。
+                                    托尔希望将神祇的身份给予简·福斯特，但奥丁却证明简·福斯特不具备女神资质，并抹去了简·福斯特的相关记忆。托尔只得黯然放弃，后来与青梅竹马的女战神西芙再续前缘。
+                                    托尔一直为了守护仙宫而与巨魔尤里克（Ulik）、火巨人苏尔特尔（Surtur）、魅惑女巫阿莫拉（Amora）、死神海拉（Hela）、怪物曼高戈（Mangog）、以及弟弟邪神洛基（Loki）等反派持续不断地战斗，同时也与奥丁不断冲突，并曾多次被奥丁放逐出仙宫。有一次，奥丁甚至剥夺了托尔的雷神身份，并让一个叫做雷德·诺维尔的凡人取而代之，不过后来证明奥丁是为了防止托尔死在与尘世巨蟒的战斗中而让雷德·诺维尔作为替身代而战死。托尔随后便了解到所谓诸神黄昏已经多次发生，并已经有多个托尔死去。
+                                    后来，奥丁收回了身份变化的咒语，使得唐纳德·布莱克的人格消失。托尔转而化名为西格德·贾尔森（Sigurd Jarlson），并在尼克·弗瑞（Nick
+                                    Fury）的帮助下作为建筑工人在人间继续生活。但在后来的一场战斗中，由于意外，他与自己的上司、建筑师埃里克·马斯特森（Eric
+                                    Masterson）合为一体。此后不久，洛基持续设法迫害托尔，并伤害了马斯特森的亲人，愤怒的托尔杀死了洛基，因此被当时的仙宫执政者海姆达尔永久放逐出仙宫。托尔不得不将自己的能力转移给了埃里克·马斯特森，让马斯特森以雷神托尔的身份继续行侠仗义。马斯特森后来发现被放逐的托尔被关在了自己的心中，解救出托尔后，马斯特森继续以“雷神”为名从事超级英雄的冒险，直至后来牺牲。而托尔则因为常年被困在多个凡人的心灵与人格之间，精神出现错乱，变成了狂战士，造成了巨大的混乱，后被奥丁治愈。
+                                    不久，在与地球上的英雄与X战警对抗邪恶变种人屠杀（Onslaught）的战斗中，托尔第一个冲向屠杀，并被抛入另外一个宇宙。托尔在这个宇宙中与自己的复仇者队友们会合，但在设法回到现实宇宙的路上，为了阻止厄运博士绑架神奇四侠隐形女与神奇先生之子富兰克林的企图，托尔与厄运博士双双坠入虚空而消失。
+                                    托尔在各个宇宙间历险归来之后，发现仙宫已经成为废墟，而苏尔特尔的黄昏之剑则被女巫摩根盗走创造她的幻想世界。击败摩根后，托尔四处寻找仙宫诸神的下落，却被洛基操纵的毁灭者装甲重伤肉身。
+                                    此时，有一个小混混杰克·奥尔森（Jake
+                                    Olson）因为在混乱中试图救人而被波及死去，奥丁的渡鸦穆因为了救助两人，让托尔住进了杰克·奥尔森体内。托尔后来解救了众神，但依然与父亲不合，以奥尔森身份停留在凡间。一次战斗后，奥丁发现奥尔森肉体所受伤害影响到了托尔本身，使得托尔自己伤势难以恢复，便将托尔与奥尔森分离开来。但由于奥尔森是托尔的肉身，而并非其另一人格，此举反而导致托尔性格中的人性逐渐丧失。此时苏尔特尔卷土重来，奥丁与苏尔特尔大战并双双殒命。托尔起初无法接受这一事实，认为父亲是想要诈死考验自己，后来发现奥丁之力在体内出现，只得承认奥丁已死的事实并登上仙宫王位。
+                                    仙宫人民对托尔花费大量时间充当地球保护者的事十分不满，为了平息抗议，托尔索性将整个仙宫搬到了纽约上方。此后，托尔对人间的社会、经济、政治和宗教事务插手日益增加，引起人类极大的恐慌与不满，托尔与从前好友钢铁侠和美国队长发生冲突并大打出手后，宣布脱离复仇者。
+                                    人类对仙宫的仇视日益增加，将托尔诱骗到大西洋中的小岛上并用核弹攻击他，同时派出军队攻击仙宫。仙宫的严重伤亡令托尔大受刺激，他征服了全球并自命为最高统治者，企图反抗的X战警和复仇者则基本被托尔和洛基杀死或囚禁。托尔并迎娶阿莫拉为妻，并生下一子玛格尼。玛格尼长大成人后，开始质疑父亲的做法，加入了反抗他的行列。托尔最终意识到自己的错误，回到过去并再度与奥尔森合为一体，抹消了这条时间线。然而不久之后，洛基引发了诸神黄昏，攻陷了仙宫。托尔在体内奥丁之力的指引下自挖双眼获得“符文王”的力量，意识到历次诸神黄昏都是远古诸神为了获得力量一手操纵的无尽轮回。为了彻底破坏这一轮回，托尔摧毁仙宫终结了众神的循环，自己也进入虚无中长眠。
+                                    数年后，唐纳德·布莱克将托尔带回人间。托尔将仙宫移至俄克拉荷马州博克森顿小镇外的平原上，并逐一将在人类心中沉睡的诸神召回。托尔了解到在他沉睡期间超级英雄为了注册法案而爆发的内战，对此深感失望并宣布不涉入到任何一方。然而，此时占据了西芙身体的洛基设下陷阱，令托尔与死而复生的祖父博尔发生战斗，不明真相的托尔为了阻止博尔的疯狂不得已杀死了博尔，此举使得他再度被仙宫放逐。在洛基的策划下，“绿魔”诺曼·奥斯本与麾下的黑暗复仇者大举向仙宫发动进攻，虽然复仇者在复活归来的美国队长带领下再度集结，与托尔并肩作战保护仙宫并击败了诺曼·奥斯本，但仙宫被发狂的哨兵破坏。洛基亦被哨兵杀死。
+                                    在击败了世界吞噬者之后，托尔不顾众神反对，将重生为少年的洛基带回仙宫。钢铁侠开始着手重建仙宫，但奥丁预感到自己的兄长、前一任众神之父“尘世巨蟒”耶梦加得即将复活，强行把众神和托尔带回仙宫原先所在的空间。耶梦加得苏醒后，在地球上肆虐，托尔不顾奥丁反对返回地球与耶梦加得作战，如同预言中一般在击败耶梦加得之后死在父亲怀中。巨魔乌里克乘虚而入，装扮成托尔并取代了他的位置，但托尔在不久之后便击败噬神者重新归来，打败了冒名顶替者，重新担负起仙宫守护者的职责。
+                                    在“火巨人”苏尔特尔被少年洛基放出黄昏界后，托尔与少年洛基兄弟联手击败了苏尔特尔，将他囚禁在了仙宫原先所在地，但少年洛基的灵魂也再次被从前的邪神洛基取代。
+                                    不久，托尔被其他星球上的居民召唤，并发现一个名为果尔的屠神者正在逐一猎杀宇宙中所有的诸神。托尔回忆起从前曾一度与屠神者遭遇，并穿越到了未来，发誓阻止屠神者的凶行。
+                                </div>
+                                <hr class="my-4">
+                                <h4 class="mb-4">评论</h4>
+                                <!-- 评论框 -->
+                                <div class="card-body mt-4 mb-4">
+                                    <form action="${pageContext.request.contextPath}/Details"
+                                          method="POST">
+
+                                        <!-- 已登录 -->
+                                        <div class="form-group">
+									<textarea class="form-control" placeholder="说点什么吧..."
+                                              style="min-height: 120px;" name="content"></textarea>
+                                        </div>
+                                        <!--                                            <a href="${pageContext.request.contextPath}/Login"-->
+                                        <!--                                               data-toggle="modal" data-target="#Login">去登录</a>-->
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </form>
+                                </div>
+                                <hr class="my-4">
+                                <!-- 评论列表 -->
+                                <h4 class="mb-4">评论列表</h4>
+                                <div class="card-body media mt-4 mb-4">
+                                    <img src="${ comment.getAvatar() }" class="mr-3" alt="..."
+                                         style="width: 64px; height: 64px;">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">${ comment.getNickName() }</h5>
+                                        <div class="row">
+                                            <p class="col-md-9">${ comment.getContent() }</p>
+                                            <p class="col-md-3">${ comment.getCreatedTime() }</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+                            </div>
+                            <!-- 右侧 -->
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">最近更新</h4>
+                                        <!-- 推荐文章 -->
+                                        <div class="list-group list-group-flush mt-4">
+                                            <a
+                                                    href="${pageContext.request.contextPath}/Details?id=${ article.getId() }"
+                                                    class="list-group-item list-group-item-action">${ article.getTitle()
+                                                }</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--底部开始-->
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+</div>
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+<script src="/PCompus/static/js/base/style.js"></script>
+<script src="/PCompus/static/js/base/common.js"></script>
+</body>
+</html>

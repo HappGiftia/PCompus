@@ -1,0 +1,173 @@
+@mixin default-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-full {
+  width: 100%;
+}
+
+@mixin flexWrap {
+  flex-wrap: wrap;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin flexCol {
+  @include flexWrap;
+  flex-flow: column;
+}
+
+@mixin ps-r {
+  position: relative;
+}
+
+@mixin ps-a {
+  position: absolute;
+}
+
+@mixin fr {
+  float: right;
+}
+
+@mixin fl {
+  float: left;
+}
+
+@mixin cur-p {
+  cursor: pointer;
+}
+
+@mixin cur-all {
+  cursor: all-scroll;
+}
+
+/* 待整理 */
+
+@mixin btn-icon {
+  font-size: 1.8rem;
+}
+
+@mixin defaultBackgroundColor {
+  background-color: $defaultBackground;
+}
+
+@mixin default-col-style {
+  @include default-col-border;
+  @include default-col-radius;
+  // background-color: $previewColBg;
+}
+
+@mixin default-col-layout {
+  margin: 0 0.2rem;
+  @include default-flex;
+}
+
+@mixin default-col-border {
+  border: 1px dashed $deep-color-2;
+}
+
+@mixin defaultBorder {
+  border: 1px solid black;
+}
+
+@mixin minHeight {
+  min-height: 100px;
+}
+
+@mixin default-col-radius {
+  border-radius: 5px;
+}
+
+@mixin boxShadow {
+  box-shadow: 2px 2px 5px rgba(158, 158, 158, 0.4);
+}
+
+@mixin boxShadowReversal {
+  box-shadow: -2px 2px 5px rgba(158, 158, 158, 0.4);
+}
+
+@mixin title-margin {
+  margin: 0 0.5rem;
+}
+
+@mixin previewRow {
+  @include default-flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+@mixin default-background-img {
+  background-size: 100%;
+  background-position: center center;
+}
+
+@mixin controller-bar {
+  @include ps-a;
+  @include default-col-radius;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  background-color: $defaultControllerBarBackground;
+  color: $defaultActiveColor;
+}
+
+@mixin previewItem {
+  @include default-flex;
+  @include default-col-radius;
+  height: 50px;
+  margin: 0 0.2rem;
+}
+
+@mixin side-controller-box {
+  @include ps-a;
+  @include default-col-radius;
+  top: 0;
+  height: 800px;
+  width: 450px;
+  overflow: hidden;
+}
+
+@keyframes transIcon {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes transIconReversal {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@mixin componentContainer {
+  @include flexCol;
+  height: 100%;
+  width: 100%;
+  padding: 0.6rem;
+}
+
+@mixin flexFullRow {
+  width: 100%;
+}
+
+@mixin title-4_8 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+@mixin count-4_8 {
+  color: $active-color-1;
+  font-size: 2.5rem;
+}

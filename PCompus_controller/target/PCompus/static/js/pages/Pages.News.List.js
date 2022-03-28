@@ -1,44 +1,35 @@
-Vue.prototype.$axios = axios
+let resultsNewsList;
+let clickId
+
+
+Vue.prototype.axios = axios
 $(function () {
-    getNews.getNewsList();
+    getNews.getNewsList()
+    $(".news-card").click(function () {
+        clickId = $(this).children("div:first-child").text();
+        console.log("点击ID:" + clickId);
+
+        $(window).attr('location','http://localhost:8080/PCompus/PagesNewsList/JumpPagesById?newsId='+ clickId);
+    })
 })
-let jumpNewsDetail = new Vue({
+
+
+var getNews = new Vue({
     el: "#news-div",
     data: {
         newsId: 1
-    }
-    , methods: {
-        jump() {
-            let that = this;
-            this.$axios.get("http://localhost:8080/PCompus/Pages.News.Detail", {
+    },
+    methods: {
+        getNewsList: function () {
+            this.axios.get("http://localhost:8080/PCompus/PagesNewsList/getNewsList", {
                 params: {
-                    newsId: that.newsId
-                }
-            })
-        }
-    }
-})
-
-// var login_id=document.cookie.getkey(login_id)
-let getNews = new Vue({
-    el: '#card-box-div',
-    data: {
-        newsIds: [],
-        userId: 1,
-        resultsNewsList: []
-    }
-    , methods: {
-        getNewsList() {
-            let that = this;
-            this.$axios.get("http://localhost:8080/PCompus/Pages.News.Detail/getNewsList", {
-                params: {
-                    userId: that.userId
+                    userId: 1
                 }
             }).then(function (res) {
                 for (let i in res.data) {
                     console.log("新闻标题和id:" + res.data[i].title + '==>' + res.data[i].news_id);
                 }
-                that.resultsNewsList = res.data;
+                resultsNewsList = res.data;
             })
         }
     }

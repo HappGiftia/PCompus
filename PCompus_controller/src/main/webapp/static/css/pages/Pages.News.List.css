@@ -125,3 +125,213 @@
 .card-body p {
     font-size: unset;
 }
+
+
+/*新闻板块*/
+
+.side-bar .list-group-item {
+    border: 0px;
+    border-radius: 8px;
+    margin-bottom: 7px;
+}
+
+.side-bar .list-group-item.active {
+    /*属性选择器中，选取类名时，不是一个类时，用空格隔开，同一个类的多个名字中间不加空格*/
+    background-color: firebrick;
+}
+
+
+/*左侧导航栏*/
+
+
+.news-list-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.news-list-item:first-child {
+    padding-top: 0px;
+    padding-bottom: 12px;
+
+}
+
+/*除第一条上边距不需要边距，父亲孩子选择器*/
+
+.news-list-item .title {
+    display: block;
+    /*后面的内容才会在内容上继承下来样式*/
+    color: #444;
+    /*颜色#000黑色，#999白色*/
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.news-list-item .title:hover {
+    color: #23527c;
+    /*通过浏览器选中标题后审查元素，得到本来默认的颜色*/
+}
+
+.news-list-item .info {
+    color: #adadad;
+
+}
+
+.author {
+    display: inline-block;
+
+}
+
+.author img {
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    margin-right: 5px;
+}
+
+a:hover {
+    text-decoration: none;
+    /*链接样式去掉*/
+}
+
+/*主题内容样式*/
+
+
+.side-bar-card {
+    background: rgba(0, 0, 0, 0.05);
+    /*设置阴影*/
+    margin-top: 17px;
+    padding: 10px 2px;
+}
+
+.side-bar-card.police {
+    padding: 20px 2px;
+}
+
+.note {
+    padding-bottom: 10px;
+    font-size: 150%;
+}
+
+.side-bar-card {
+    border-radius: 10px;
+}
+
+.side-bar-card .card-title,
+.side-bar-card .card-body .list .item {
+    padding: 11px 20px;
+}
+
+.side-bar-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.side-bar-card .card-body .list .item:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.card-body .list .item .title {
+    padding-bottom: 5px;
+}
+
+.card-body .list .item .desc {
+    color: #999999;
+}
+
+/*右侧导航栏样式*/
+
+
+.news-title {
+    line-height: 1.2;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.new-info .label {
+    opacity: 0.6;
+    /*设置不透明度*/
+}
+
+.news-content {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.news-content img {
+    width: 450px;
+    height: 250px;
+    margin: 10px auto;
+}
+
+.clear-image-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+    /*这里添加的图片，继承了父元素的padding属性，重复了*/
+}
+
+/*跳转网页样式*/
+
+
+.footer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px auto;
+    text-align: center;
+    color: #adadad;
+}
+
+/*底部*/
+
+
+.container-small {
+    max-width: 500px;
+}
+
+.btn-primary {
+    margin-top: 25px;
+    background-color: burlywood;
+    border-color: burlywood;
+}
+
+.btn-primary:hover {
+    background-color: #c0a16b;
+    border-color: #c0a16b;
+}
+
+/*登录注册样式*/
+
+
+#toggle-checkbox:checked ~ div {
+    display: block !important;
+    /*!important表示最高级别规则*/
+}
+
+#toggle-label {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    font-size: 16px;
+    color: #888888;
+    display: none;
+    /*默认隐藏，在小屏幕再显示*/
+}
+
+#toggle-label:hover {
+    color: #333333;
+}
+
+#refresh-news {
+    float: right;
+}
+
+.caption > p {
+    color: #555666;
+}
+
+/*新闻板块结束*/

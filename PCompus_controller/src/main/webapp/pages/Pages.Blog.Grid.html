@@ -1,52 +1,655 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/PCompus/static/css/vendor/bootstrap_css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2958618_xkg0grsjlgq.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/styles.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/common.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Dashboards.Default.css"/>
+    <link rel="stylesheet" href="/PCompus/static/css/font-awesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/PCompus/static/css/pages/Pages.Blog.Grid.css">
+    <script src="/PCompus/static/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/PCompus/static/js/vendor/echarts.min.js"></script>
+    <script src="/PCompus/static/js/vendor/bootstrap-pagination-spirit.js"></script>
+
 </head>
 <body>
 
-<div class="fav_list" id="info"
-     style="border-radius: 12px; margin-left: 10%; margin-right: 10%;">
-    <div class="fav_list_box">
-        <div class="fav_list_title">
-            <h3 class="fav_list_title_h3">已写文章</h3>
-            <div class="fav_num">
-                共<span>${userArticles.size()}</span>条
+<div class="head">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Brand -->
+        <div class="logo" onclick="window.open('https://www.baidu.com')"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <!-- 首页 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-shouye-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-index" data-toggle="dropdown">数据</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Default">综合</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Compus">学院</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Personal.Data">个人</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Dashboards.Community">社会</a>
+                    </div>
+                </li>
+                <!-- 应用 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-yingyong-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-apps" data-toggle="dropdown">应用</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Calendar">日程提醒</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Diary">日记</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.Chat">聊天</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Apps.TimeLine">时间线</a>
+
+                    </div>
+                </li>
+                <!-- 页面 -->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-zhixingjilu-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-notebook" data-toggle="dropdown">
+                        页面
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Blog.Grid">博客</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Picture.Grid">风景</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Videos.Grid">视频</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.News.List">新闻</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Practice.Grid">实践</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Pages.Products.Grid">商城</a>
+                    </div>
+                </li>
+                <!-- 功能-->
+                <li class="nav-item dropdown">
+                    <i class="iconfont icon-page-nav" data-toggle="dropdown"></i>
+                    <a class="nav-link" href="#" id="nav-pages" data-toggle="dropdown">功能</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Music.Playing">音乐</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.Public.Chatroom">公共聊天室</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.User.Info">个人中心</a>
+                        <a class="dropdown-item" href="http://localhost:8080/PCompus/Blocks.FAQ">意见反馈</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Links -->
+        <!-- 天气 -->
+        <div class="nav-item collapse navbar-collapse weather-nav">
+            <i class="iconfont icon-tianqi-nav" data-toggle="dropdown"></i>
+            <div id="weather" class="dropdown-menu">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="card-columns"
-             style="margin-top: 20px; margin-left: 5%; width: 90%; column-count: 5; column-gap: 2.25rem;">
-            <c:forEach items="${userArticles}" var="Article" varStatus="s">
+        <!-- 搜索 -->
+        <div class="collapse navbar-collapse search-nav">
+            <a href="jquery:;">
+                <i class="iconfont icon-sousuo-nav" onclick="jQuery:search_nav()"></i>
+            </a>
 
-                <div class="card" id="article-div" onclick="jump('${Article.getArticle_id()}')">
-                    <img src="${Article.getArticleImageURL() }" class="card-img-top"
-                         alt="...">
+            <input
+                    id="search-input"
+                    name="search"
+                    type="text"
+                    placeholder="请输入内容"
+                    οnfοcus="this.placeholder=''"
+                    οnblur="this.placeholder='请输入内容'"
+            />
+        </div>
+        <!-- 消息提示 -->
+        <div class="nav-item collapse navbar-collapse message-nav">
+            <a href="#"><i class="iconfont icon-xiaoxitishi-nav"></i></a>
+        </div>
+        <!-- 学习 -->
+        <div class="nav-item collapse navbar-collapse studying-nav">
+            <a href="">
+                <i class="iconfont icon-xuexizhong-nav"></i>
+            </a>
+        </div>
+        <div class="nav-item collapse navbar-collapse login-user">
+            <ul class="navbar-nav mr-auto">
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" style="height: 60px"> <img alt=""
+                                                                                          class="img-circle"
+                                                                                          src="/PCompus/static/img/profile/profile-5.jpg"
+                                                                                          width="38px"
+                                                                                          height="38px"/> <span
+                        style="color: #000000; font-size: 15px">登录用户
+									</span>
+                </a>
+                    <div class="dropdown-menu pull-right"
+                         style="background: #FFFFFF;border-radius: 12px; width: 320px; overflow: hidden">
+                        <div
+                                style=" border-bottom: 2px solid #eeeeee">
+
+                            <div
+                                    style="color: #323534; text-align: center; line-height: 36px; font-size: 15px"><img
+                                    class="img-circle"
+                                    src="/PCompus/static/img/profile/profile-5.jpg"
+                                    style="margin: 16px 0 17px 0;width: 38px; height: 38px;" alt=""/>
+                                <span>登录用户</span>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/UserInfo')">
+                                <i class="iconfont icon-wode-user"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    个人中心</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-zhanghaoguanli"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号管理</p>
+                            </div>
+                            <div class="col-md-4 text-center grid"
+                                 onclick="window.open('http://127.0.0.1:8080/travel/user_info.jsp#user-help')">
+                                <i class="iconfont icon-mimazhaohuibaocuo "
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    账号找回</p>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                             style="margin-left: 15px; margin-right: 15px; margin-top: 10px">
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-touxiang"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    修改头像</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont iconfont icon-xiaoxitishi"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    消息</p>
+                            </div>
+                            <div class="col-md-4 text-center grid">
+                                <i class="iconfont icon-bangzhu"
+                                   style="font-size: 25px; line-height: 45px;"></i>
+                                <p
+                                        style="padding: 0px; margin-top: 6px; margin-bottom: 10px; font-size: 12px">
+                                    帮助中心</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row"
+                             style="margin-top: 20px; margin-left: 33%; cursor: pointer;"
+                             id="logout"
+                             onclick="location.href = '${pageContext.request.contextPath}/Logout';">
+                            <button type="button" class="btn btn-outline-primary"
+                                    style="width: 100px;height: 30px;line-height: 23px;">
+                                <i class="iconfont icon-tuichu" style="line-height: unset"></i> 退出登录
+                            </button>
+                        </div>
+                        .
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-user-dropdown"></div>
+    <div class="container" style="height: 50px;font-size:22px">
+        <div class="row breadcrumb precentpage-bread-nav">
+            <div class="col precentpage-nav-head">博客校园</div>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb precentpage-nav-content-ol precentpage-bread-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!--头部结束-->
+<div class="full-wh">
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+</div>
+
+
+<div class="main container main-container">
+    <span>本周主题</span>
+    <div class="row">
+        <div class="col-md-12 data-item-title">
+            <ul class="nav nav-tabs" role="tablist" id="videos-tab">
+                <li id="blog-li" role="tab">
+                    <a href="#videos-tab" role="tab" data-toggle="tab">本周</a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-videos">刷新</button>
+        </div>
+    </div>
+    <div class="row">
+        <!-- 中间展示框 -->
+        <section class="col-md-12 midsection data-item jumbotron jumbotron-fluid mymidcontain">
+
+
+            <h1 class="text-center pt-5">讲述漫威英雄的的博客</h1>
+            <div style="background:linear-gradient(to left,#efefef,#b6b6b6,#efefef);height:1px; margin: 40px;"></div>
+            <h3 class="text-center">你知道哪些漫威的超级英雄？我不知道这里该怎么向你叙述漫威？所一我决定先说说他们的精彩言论</h3>
+            <div class="d-flex flex-wrap m-3">
+                <div class="card mr-auto ml-auto mb-3" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Deadpool" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
                     <div class="card-body">
-                        <h5 class="card-title">${Article.getArticleTitle() }</h5>
-                        <p class="card-text">${Article.getArticleDescription() }</p>
-                        <label style="text-align: right; float: right; color: #635255;">
-                            <p>${Article.getArticleCategory() }</p>
-                            <p>${showArticleCreatetimes.get(s.index)}</p>
-                        </label>
+                        <h4 class="card-title">死侍</h4>
+                        <p class="card-text blockquote-footer">当你的生活变成一堆屎的时候，通常都是因为你当时做的傻逼决定。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
                     </div>
                 </div>
-            </c:forEach>
+                <div class="card mr-auto ml-auto mb-3" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Wolverine" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">狼叔</h4>
+                        <p class="card-text blockquote-footer">“你拼命喝酒是为了忘掉过去吗？”<br>“不，我只想重拾回忆。”</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Thor" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">雷神</h4>
+                        <p class="card-text blockquote-footer">那些你一笑就跟著笑的人，如果不傻，那就是爱你的人了。</p>
+                        <a href="http://localhost:8080/PCompus/Pages.Blog.Detail" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Vision" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">幻视</h4>
+                        <p class="card-text blockquote-footer">没事，你不会伤害到我的。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Captain America"
+                         width="100%" height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">美队</h4>
+                        <p class="card-text blockquote-footer">只有弱小的人，才懂得力量的可贵！</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Iron Man" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">钢铁侠</h4>
+                        <p class="card-text blockquote-footer">很多词能形容我 怀旧可不在其中。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Quicksilver" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">快银</h4>
+                        <p class="card-text blockquote-footer">虽然我能跑得很快，但总有些时候我也赶不上。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Hawkeye" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">鹰眼</h4>
+                        <p class="card-text blockquote-footer">我站在世界的顶点等你。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Scarlet Witch" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">绯红女巫</h4>
+                        <p class="card-text blockquote-footer">再也没有变种人了！</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Hulk" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">浩克</h4>
+                        <p class="card-text blockquote-footer">惹怒我，后果很严重！</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Black Widow" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">黑寡妇</h4>
+                        <p class="card-text blockquote-footer">只有小孩子才谈情说爱。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+                <div class="card mr-auto ml-auto mb-3 hidecon" style="width:330px;">
+                    <img src="/PCompus/static/img/product/horizontal/horizontal-3.jpg" alt="Ant-Man" width="100%"
+                         height="auto"
+                         class="card-img-top img-responsive">
+                    <div class="card-body">
+                        <h4 class="card-title">蚁人</h4>
+                        <p class="card-text blockquote-footer">我错过了太多时间，我想成为她生活的一部分。</p>
+                        <a href="#" class="btn btn-danger">详细介绍</a>
+                    </div>
+                </div>
+            </div>
+            <center>
+                <button type="button" class="btn btn-warning" id="zhankai">收起</button>
+            </center>
+
+        </section>
+        <br>
+
+    </div>
+</div>
+
+
+<div class="main container main-container">
+    <span>博客展示</span>
+    <div class="row">
+        <div role="tabpanel" class="col-md-12 data-item-title">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs " id="dashboards-practice-ul" role="tablist">
+                <li role="tab" id="in-school-li" class="active">
+                    <a
+                            href="#panel-1"
+                            aria-controls="panel-1"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        最新博文
+                    </a>
+                </li>
+                <li role="tab" id="out-school-li">
+                    <a
+                            href="#panel-2"
+                            aria-controls="panel-2"
+                            role="tab"
+                            data-toggle="tab"
+                    >
+                        其他想法
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-primary btn-refresh" id="refresh-practice">刷新</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="data-item jumbotron jumbotron-fluid">
+            <div class="main-content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="panel-1">
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="m-4  ul_notecontain">
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第一篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-08-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第二篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-09-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第三篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-10-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第四篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-11-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第五篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-12-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <div id="pagination"></div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="spiritPagination"></div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="panel-2">
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="m-4  ul_notecontain">
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第一篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-08-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第二篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-09-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第三篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-10-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第四篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-11-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                    <li class="p-4">
+                                        <h3 class="mb-4">第五篇博客</h3>
+                                        <i>
+                                            <div class="fakeimg mr-3" style="float: left">图像</div>
+                                            这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！这是一些博客内容！
+                                        </i>
+                                        <p style="margin-top:40px;">
+                                            <span>帮我消消黑眼圈</span>
+                                            <span><small>-----------------2018-12-12-----------------</small></span>
+                                            <a href="#" class="btn btn-danger" style="float: right">阅读更多</a>
+                                        </p>
+                                    </li>
+                                    <div style="background:linear-gradient(to left,#2b0000,#530000,#2b0000);height:1px;"></div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="spiritPagination"></div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
 
-<script>
-    var articleDiv = document.getElementById("article-div");
+<!-- 下方笔记区 -->
+<section class="bottomsection">
+    <div class="container aftercontain">
+
+    </div>
+</section>
 
 
-    function jump(articleId) {
-        window.location.href = "http://127.0.0.1:8080/travel/Details" + "?articleId=" + articleId;
-    }
-</script>
+<!--底部开始-->
+<div class="footer" style="width: 100%">
+    <div class="myaudio">
+        <div class="myaudio-center">
+            <audio id="aud">
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/ogg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/mpeg"
+                        width="300px"
+                />
+                <source
+                        src="/PCompus/static/music/江美琪,金海心%20-%20静止%20(！歌手)%20(（）歌手).mp3"
+                        type="audio/wav"
+                        width="300px"
+                />
+                浏览器不支持此格式
+            </audio>
+            <div class="aud-btn">
+                <img src="/PCompus/static/img/banner/play.png" id="play"/>
+            </div>
+            <div class="aud-show">
+                <div id="Progress-time">00:00</div>
+                <div id="Progress">
+                    <span id="jin"></span>
+                    <span id="yuan"></span>
+                </div>
+                <div id="Progress-end">00:00</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">@宿州学院-王荆茜</span>
+    <br/>
+    <span style="font: normal 14px/24px 'MicroSoft YaHei'">
+                毕业设计 设计时间：2022-03-09
+            </span>
+    <br/>
+</div>
+<script src="/PCompus/static/js/vendor/vue.js"></script>
+<script src="/PCompus/static/js/base/style.js"></script>
+<script src="/PCompus/static/js/base/common.js"></script>
+<script src="/PCompus/static/js/vendor/bootstrap/bootstrap-pagination-spirit.js"></script>
+<script src="/PCompus/static/js/pages/Pages.Blog.Grid.js"></script>
 </body>
 </html>

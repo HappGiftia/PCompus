@@ -28,5 +28,5 @@
     <bean class="com.uof.pcompus.common.DefineCharset"/>
 
     <mvc:default-servlet-handler/>
-
+    <!--<mvc:resources location="/pages/" mapping="/pages/**"/>-->
 </beans>

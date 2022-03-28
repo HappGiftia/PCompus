@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.myheader {
+
+    -pie-background: linear-gradient(#000000, transparent);
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.movenav {
+    background: #2b0000;
+    opacity: 0.95;
+    padding: 5px;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.mynavli:hover {
+    background-color: #4b0000;
+    border-radius: 5px;
+}
+
+.mynavlia {
+    font-size: 20px;
+    width: 110px;
+    text-align: center;
+}
+
+.mynullplace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bgimg {
+    display: table;
+    position: absolute;
+}
+
+.mymidcontain {
+
+    border: 2px solid rgba(46, 0, 0, 0.7);
+    border-radius: 15px;
+
+}
+
+
+.ul_notecontain {
+    list-style-type: none;
+    color: #000;
+}
+
+.fakeimg {
+    width: 150px;
+    height: 120px;
+    background-color: #aaa;
+}
+
