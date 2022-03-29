@@ -7,7 +7,7 @@ body {
     cursor: url(../img/cursor/cursor.png), default !important;
 }
 
-a,span,button,button:hover,.active,.btn-refresh,.searchtab li,.container canvas,.search-group .search-date,.search-flight .search-input-exchange , a:hover {
+a, span, button, button:hover, .active, .btn-refresh, .searchtab li, .container canvas, .search-group .search-date, .search-flight .search-input-exchange, a:hover {
     cursor: url(../img/cursor/cursor2.png), default !important;
     text-decoration: none;
 }
@@ -224,9 +224,10 @@ body {
     height: auto;
 }
 
-.dropdown-menu{
-    margin:0;
+.dropdown-menu {
+    margin: 0;
 }
+
 .dropdown-menu img {
     display: unset;
 }
@@ -1325,6 +1326,7 @@ table {
 .card-body p {
     overflow: hidden;
 }
+
 @charset "UTF-8";
 
 
@@ -1400,7 +1402,8 @@ table {
     height: 125px;
     border-radius: 50%;
 }
-.memories-images img{
+
+.memories-images img {
     display: unset;
 }
 

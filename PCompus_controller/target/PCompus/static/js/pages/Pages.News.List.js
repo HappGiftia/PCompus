@@ -9,7 +9,7 @@ $(function () {
         clickId = $(this).children("div:first-child").text();
         console.log("点击ID:" + clickId);
 
-        $(window).attr('location','http://localhost:8080/PCompus/PagesNewsList/JumpPagesById?newsId='+ clickId);
+        $(window).attr('location', 'http://localhost:8080/PCompus/PagesNewsList/JumpPagesById?newsId=' + clickId);
     })
 })
 
