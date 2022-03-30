@@ -31,17 +31,6 @@
     height: 500px;
 }
 
-.footer {
-    position: static;
-    right: 0px;
-    bottom: 0px;
-    background: #faead4;
-    color: #000;
-    display: block;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-}
 
 .footer span {
     position: relative;
@@ -205,16 +194,6 @@ a:hover {
     /*这里添加的图片，继承了父元素的padding属性，重复了*/
 }
 
-/*跳转网页样式*/
-
-
-.footer {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 20px auto;
-    text-align: center;
-    color: #adadad;
-}
 
 /*底部*/
 

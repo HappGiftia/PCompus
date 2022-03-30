@@ -1,4 +1,5 @@
 com\uof\pcompus\controller\AdministratorController.class
+com\uof\pcompus\controller\NewsController.class
 com\uof\pcompus\controller\RegisterController.class
 com\uof\pcompus\controller\SearchController.class
 com\uof\pcompus\common\DefineCharset.class

@@ -917,11 +917,6 @@ h3.m_1 {
     margin-bottom: 2em;
 }
 
-/*--footer--*/
-.footer {
-    border-top: 1px solid rgb(236, 236, 236);
-    padding-top: 4em;
-}
 
 .box_3 h3 {
     color: #515151;
@@ -2916,9 +2911,6 @@ p.cart a {
         margin-bottom: 0.5em;
     }
 
-    .footer {
-        padding-top: 2em;
-    }
 
     .box_3 {
         margin-bottom: 2em;

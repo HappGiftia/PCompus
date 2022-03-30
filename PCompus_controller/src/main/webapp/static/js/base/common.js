@@ -274,3 +274,6 @@ function musicPlayer() {
     }
 }
 
+$('.img-circle').click(function () {
+    window.location.href = 'http://localhost:8080/PCompus/Blocks.Authentication.Login';
+})
