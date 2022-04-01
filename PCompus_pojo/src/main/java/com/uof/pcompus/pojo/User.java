@@ -1,5 +1,7 @@
 package com.uof.pcompus.pojo;
 
+import java.util.Date;
+
 /**
  * @Description: user实体
  * @BelongsProject: PCompus
@@ -10,30 +12,100 @@ package com.uof.pcompus.pojo;
  * @Version: 1.0
  */
 public class User {
-    private String username;
-    private String password;
+    private Long userId;
+    private String userName;
+    private String userPassword;
+    private String userPhoneNumber;
+    private String userEmail;
+    private String userImage;
+    private Date registerTime;
+    private Date loginTime;
+    private String authority;
 
-    public String getUsername() {
-        return username;
+    public Long getUserId() {
+        return this.userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserName() {
+        return this.userName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPassword() {
+        return this.userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserPhoneNumber() {
+        return this.userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public String getUserEmail() {
+        return this.userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserImage() {
+        return this.userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    public Date getRegisterTime() {
+        return this.registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    public Date getLoginTime() {
+        return this.loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public String getAuthority() {
+        return this.authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userPhoneNumber='" + userPhoneNumber + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userImage='" + userImage + '\'' +
+                ", registerTime=" + registerTime +
+                ", loginTime=" + loginTime +
+                ", authority='" + authority + '\'' +
                 '}';
     }
 }

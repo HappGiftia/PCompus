@@ -452,6 +452,12 @@ body {
     color: #ffffffff;
 }
 
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
 #nc-main {
     position: absolute;
     height: 100vh;

@@ -281,7 +281,8 @@ body {
     margin-top: 6px;
     font: italic 0.6rem 'Microsoft YaHei', serif;
 }
-.breadcrumb-item>a{
+
+.breadcrumb-item > a {
     color: white;
 }
 
@@ -446,8 +447,15 @@ body {
     padding: 0;
     list-style-type: none;
 }
-.breadcrumb-item.active{
+
+.breadcrumb-item.active {
     color: #ffffffff;
+}
+
+.row{
+    margin-left:0px;
+    margin-right:0px;
+
 }
 
 #nc-main {

@@ -1016,7 +1016,16 @@ var Login = function () {
                     return false;
                 }
             });
+            var register = new Vue({
+                el: "#login-form",
+                data: {
+                    user: {
+                        userName: '',
+                        userPassword: ''
 
+                    }
+                }
+            })
             $('.forget-form').validate({
                 errorElement: 'label', //default input error message container
                 errorClass: 'help-inline', // default input error message class
@@ -1077,6 +1086,7 @@ var Login = function () {
                 jQuery('.forget-form').hide();
             });
 
+
             $('.register-form').validate({
                 errorElement: 'label', //default input error message container
                 errorClass: 'help-inline', // default input error message class
@@ -1119,6 +1129,7 @@ var Login = function () {
                 success: function (label) {
                     label.closest('.control-group').removeClass('error');
                     label.remove();
+
                 },
 
                 errorPlacement: function (error, element) {
@@ -1128,9 +1139,21 @@ var Login = function () {
                         error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
                     }
                 },
-
+                //代替form的submit事件
                 submitHandler: function (form) {
-                    window.location.href = "index.html";
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "http://localhost:8080/PCompus/register",
+                        data: $('#register-form').serialize(),
+                        success: function (msg) {
+                            let userInfo = JSON.parse(msg)
+                            register.$data.user.userName = userInfo.userName;
+                            register.$data.user.userPassword = userInfo.userPassword;
+                            $('#register-back-btn').trigger("click")
+                        }
+                    });
+
                 }
             });
 
@@ -1148,3 +1171,4 @@ var Login = function () {
     };
 
 }();
+

@@ -30,7 +30,7 @@ public class NewsController {
         if (null != newsId) {
             modelAndView.addObject("newsId", newsId);
         }
-        modelAndView.setViewName("Pages.News.Detail");
+        modelAndView.setViewName("Pajaxges.News.Detail");
         return modelAndView;
     }
 }
